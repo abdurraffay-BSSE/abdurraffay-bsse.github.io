@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOLIXA Hair Care — Nourish Your Hair</title>
+<meta name="description" content="FOLIXA Hair Care — premium hair oil for your everyday hair-care routine.">
+<style>
+:root{
+  --green:#12372b; --green2:#1d4d3c; --cream:#f7f2e8; --gold:#c8a45d;
+  --ink:#17231e; --muted:#66736c; --white:#fff; --line:#e5e0d5;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(247,242,232,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{height:74px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;letter-spacing:4px;color:var(--green);font-size:22px}
+.logo small{display:block;font-size:8px;letter-spacing:2.5px;text-align:center;color:var(--gold)}
+nav{display:flex;gap:28px;font-size:14px;color:#445149}
+.nav-btn{background:var(--green);color:white;padding:11px 18px;border-radius:999px;font-weight:700}
+.hero{padding:75px 0 85px;background:radial-gradient(circle at 80% 20%,#eadfca 0,transparent 30%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center}
+.eyebrow{color:var(--gold);font-size:12px;letter-spacing:3px;font-weight:800;margin-bottom:15px}
+h1{font-family:Georgia,serif;font-size:clamp(44px,6vw,72px);line-height:1.03;color:var(--green);margin-bottom:20px}
+.hero p{font-size:18px;color:var(--muted);max-width:560px;margin-bottom:27px}
+.price{font-size:25px;font-weight:800;color:var(--green);margin-bottom:22px}
+.btn{display:inline-block;padding:14px 24px;border-radius:999px;background:var(--green);color:white;font-weight:800;border:0;cursor:pointer}
+.btn.alt{background:transparent;color:var(--green);border:1px solid var(--green);margin-left:8px}
+.trust{display:flex;flex-wrap:wrap;gap:15px;margin-top:25px;color:#526058;font-size:13px}
+.product-stage{min-height:500px;border-radius:34px;background:linear-gradient(145deg,#e7ddca,#f9f6ef);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.product-stage:before{content:"";width:360px;height:360px;border-radius:50%;background:#d9c9aa;position:absolute;opacity:.35}
+.bottle{position:relative;width:190px;height:360px;border-radius:28px 28px 38px 38px;background:linear-gradient(90deg,#101312,#252b28 48%,#0c0f0e);box-shadow:0 25px 45px #0004;z-index:2}
+.bottle:before{content:"";position:absolute;top:-54px;left:53px;width:84px;height:62px;background:#151817;border-radius:9px 9px 5px 5px}
+.bottle:after{content:"";position:absolute;top:-68px;left:69px;width:52px;height:18px;background:#0d100f;border-radius:6px}
+.label{position:absolute;left:18px;right:18px;top:112px;height:145px;background:#eee4cf;border:1px solid #c5a76c;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--green)}
+.label strong{font-size:21px;letter-spacing:3px}.label span{display:block;font-size:8px;letter-spacing:2px;margin-top:7px;color:#806737}
+section{padding:85px 0}
+.section-title{text-align:center;margin-bottom:45px}
+.section-title .eyebrow{margin-bottom:7px}
+h2{font-family:Georgia,serif;color:var(--green);font-size:42px;line-height:1.15}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:white;padding:30px;border:1px solid var(--line);border-radius:20px}
+.icon{font-size:28px;margin-bottom:15px}.card h3{color:var(--green);margin-bottom:8px}
+.product{background:white}.product-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:65px;align-items:center}
+.product-copy h2{text-align:left;margin-bottom:15px}.product-copy p{color:var(--muted);margin-bottom:18px}
+.list{display:grid;gap:10px;margin:20px 0}.list div{padding:10px 14px;background:var(--cream);border-radius:10px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.step{padding:24px;background:#fff;border-radius:18px;border:1px solid var(--line)}.num{color:var(--gold);font-weight:900;font-size:13px;letter-spacing:2px;margin-bottom:8px}
+.ingredients{background:var(--green);color:white}.ingredients h2{color:white}.ingredients .section-title p{color:#d5e0da}.ingredient-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.ingredient{border:1px solid #ffffff2b;border-radius:16px;padding:20px;background:#ffffff0b}.ingredient b{display:block;margin-bottom:5px}.ingredient span{font-size:13px;color:#cbd8d1}
+.order{background:#f0eadc}.order-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:start}.order-info p{color:var(--muted);margin:15px 0}.form{background:white;padding:30px;border-radius:22px;box-shadow:0 15px 40px #12372b12}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{margin-bottom:15px}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}.field input,.field textarea,.field select{width:100%;padding:13px;border:1px solid #d8d4ca;border-radius:10px;font:inherit;background:#fff}.total{display:flex;justify-content:space-between;padding:16px 0;border-top:1px solid var(--line);margin-top:8px;font-weight:800;color:var(--green)}
+.faq{max-width:800px;margin:auto}.faq details{background:white;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;padding:17px 20px}.faq summary{font-weight:800;color:var(--green);cursor:pointer}.faq p{color:var(--muted);padding-top:10px}
+footer{background:#0e2920;color:#dce6e0;padding:45px 0}.footer{display:flex;justify-content:space-between;gap:30px}.footer .logo{color:white}.footer p{font-size:13px;color:#b8c7bf;margin-top:8px}.social{display:flex;gap:18px;font-size:14px}
+.note{font-size:12px;color:var(--muted);margin-top:12px}
+@media(max-width:800px){
+ nav{display:none}.hero-grid,.product-grid,.order-grid{grid-template-columns:1fr}.hero{padding-top:45px}.product-stage{min-height:430px}
+ .cards,.ingredient-grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}
+ h2{font-size:35px}.footer{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a href="#" class="logo">FOLIXA<small>HAIR CARE</small></a>
+    <nav><a href="#product">Product</a><a href="#benefits">Benefits</a><a href="#how">How to use</a><a href="#faq">FAQ</a></nav>
+    <a class="nav-btn" href="#order">Order Now</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+<div class="container hero-grid">
+<div>
+<div class="eyebrow">PREMIUM EVERYDAY HAIR CARE</div>
+<h1>Nourish your hair.<br>Care for your roots.</h1>
+<p>FOLIXA Hair Oil is made for a simple, consistent hair-care routine—helping nourish the scalp and leave hair feeling soft and healthy-looking.</p>
+<div class="price">Rs. 600 <span style="font-size:13px;font-weight:500;color:#66736c">/ 100ml</span></div>
+<a class="btn" href="#order">Order Now</a><a class="btn alt" href="#product">View Product</a>
+<div class="trust"><span>✓ 100ml</span><span>✓ Karachi delivery</span><span>✓ COD order confirmation</span></div>
+</div>
+<div class="product-stage" aria-label="FOLIXA product illustration">
+<div class="bottle"><div class="label"><div><strong>FOLIXA</strong><span>HAIR CARE<br>PREMIUM HAIR OIL • 100 ML</span></div></div></div>
+</div>
+</div>
+</section>
+
+<section id="benefits">
+<div class="container">
+<div class="section-title"><div class="eyebrow">THE FOLIXA ROUTINE</div><h2>Simple care. Every day.</h2></div>
+<div class="cards">
+<div class="card"><div class="icon">🌿</div><h3>Scalp Nourishment</h3><p>Helps nourish and moisturize the scalp as part of your regular hair-care routine.</p></div>
+<div class="card"><div class="icon">✨</div><h3>Healthy-Looking Hair</h3><p>Helps hair feel softer and look smoother and more cared for.</p></div>
+<div class="card"><div class="icon">💚</div><h3>Easy Routine</h3><p>A straightforward oiling step you can add to your existing hair-care routine.</p></div>
+</div>
+</div>
+</section>
+
+<section class="product" id="product">
+<div class="container product-grid">
+<div class="product-stage"><div class="bottle"><div class="label"><div><strong>FOLIXA</strong><span>HAIR CARE<br>100 ML</span></div></div></div></div>
+<div class="product-copy">
+<div class="eyebrow">THE SIGNATURE PRODUCT</div><h2>FOLIXA Hair Oil</h2>
+<p>Premium 100ml hair oil designed for regular scalp and hair care.</p>
+<div class="list"><div>✓ 100ml bottle</div><div>✓ Rs. 600 product price</div><div>✓ Rs. 100 Karachi delivery</div><div>✓ Total for 1 bottle: Rs. 700</div></div>
+<a class="btn" href="#order">Order FOLIXA</a>
+<p class="note">Delivery and product availability may vary by area. We contact you to confirm the order before delivery.</p>
+</div>
+</div>
+</section>
+
+<section id="how">
+<div class="container">
+<div class="section-title"><div class="eyebrow">HOW TO USE</div><h2>Make it part of your routine.</h2></div>
+<div class="steps">
+<div class="step"><div class="num">01</div><h3>Apply</h3><p>Apply an appropriate amount according to your product instructions.</p></div>
+<div class="step"><div class="num">02</div><h3>Massage</h3><p>Gently massage the scalp without rubbing harshly.</p></div>
+<div class="step"><div class="num">03</div><h3>Leave</h3><p>Leave it on for the time recommended on your final product label.</p></div>
+<div class="step"><div class="num">04</div><h3>Wash</h3><p>Wash your hair as normal and continue your routine.</p></div>
+</div>
+</div>
+</section>
+
+<section class="ingredients">
+<div class="container">
+<div class="section-title"><div class="eyebrow">FORMULA</div><h2>What's inside?</h2><p style="margin-top:10px">Replace the placeholders below with your confirmed formula before publishing.</p></div>
+<div class="ingredient-grid">
+<div class="ingredient"><b>Ingredient 01</b><span>Add your confirmed ingredient and its purpose.</span></div>
+<div class="ingredient"><b>Ingredient 02</b><span>Add your confirmed ingredient and its purpose.</span></div>
+<div class="ingredient"><b>Ingredient 03</b><span>Add your confirmed ingredient and its purpose.</span></div>
+<div class="ingredient"><b>Ingredient 04</b><span>Add your confirmed ingredient and its purpose.</span></div>
+<div class="ingredient"><b>Ingredient 05</b><span>Add your confirmed ingredient and its purpose.</span></div>
+<div class="ingredient"><b>Ingredient 06</b><span>Add your confirmed ingredient and its purpose.</span></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="section-title"><div class="eyebrow">TRUST</div><h2>Real customers. Real experiences.</h2><p style="margin-top:10px;color:#66736c">Add genuine customer reviews here after you receive them.</p></div>
+<div class="cards">
+<div class="card"><h3>★★★★★</h3><p>“Your genuine customer review goes here.”</p><small>— Customer name/initials</small></div>
+<div class="card"><h3>★★★★★</h3><p>“Your genuine customer review goes here.”</p><small>— Customer name/initials</small></div>
+<div class="card"><h3>★★★★★</h3><p>“Your genuine customer review goes here.”</p><small>— Customer name/initials</small></div>
+</div>
+</div>
+</section>
+
+<section id="faq">
+<div class="container">
+<div class="section-title"><div class="eyebrow">QUESTIONS</div><h2>Frequently asked</h2></div>
+<div class="faq">
+<details><summary>How much does FOLIXA cost?</summary><p>FOLIXA Hair Oil is Rs. 600 for 100ml. Karachi delivery is Rs. 100, making the total Rs. 700 for one bottle.</p></details>
+<details><summary>How do I order?</summary><p>Fill in the order form below. We will contact you to confirm the order before delivery.</p></details>
+<details><summary>Where do you deliver?</summary><p>Karachi delivery is available. Confirm the exact delivery area and timing with the customer before dispatch.</p></details>
+<details><summary>Will FOLIXA guarantee hair growth or stop hair loss?</summary><p>FOLIXA should not be marketed with guaranteed medical or hair-regrowth claims unless those claims are supported by appropriate evidence. Use the product as directed and consult a healthcare professional for persistent hair or scalp concerns.</p></details>
+</div>
+</div>
+</section>
+
+<section class="order" id="order">
+<div class="container order-grid">
+<div class="order-info">
+<div class="eyebrow">READY TO ORDER?</div><h2>Get your FOLIXA.</h2>
+<p>Enter your details. This demo form opens WhatsApp with your order information so you can confirm the order with the customer.</p>
+<h3 style="color:var(--green)">1 bottle</h3><p><b>Rs. 600</b> + Rs. 100 delivery = <b>Rs. 700</b></p>
+<p class="note">Before publishing: replace the WhatsApp number in the code with your real business number.</p>
+</div>
+<form class="form" onsubmit="sendOrder(event)">
+<div class="form-row">
+<div class="field"><label>Name</label><input id="name" required placeholder="Your name"></div>
+<div class="field"><label>Phone</label><input id="phone" required placeholder="03XX XXXXXXX"></div>
+</div>
+<div class="field"><label>Address</label><textarea id="address" required rows="3" placeholder="Complete delivery address"></textarea></div>
+<div class="form-row">
+<div class="field"><label>Area</label><input id="area" required placeholder="e.g. Malir"></div>
+<div class="field"><label>Quantity</label><select id="qty"><option value="1">1 bottle</option><option value="2">2 bottles</option><option value="3">3 bottles</option></select></div>
+</div>
+<div class="total"><span>Total</span><span id="total">Rs. 700</span></div>
+<button class="btn" style="width:100%;margin-top:12px">Place Order via WhatsApp</button>
+</form>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container footer">
+<div><div class="logo">FOLIXA<small>HAIR CARE</small></div><p>Nourish your hair. Care for your roots.</p></div>
+<div class="social"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">WhatsApp</a></div>
+</div>
+</footer>
+
+<script>
+const qty=document.getElementById('qty');
+const total=document.getElementById('total');
+qty.addEventListener('change',()=>{ total.textContent='Rs. '+(700*Number(qty.value)).toLocaleString(); });
+function sendOrder(e){
+ e.preventDefault();
+ // Replace 923001234567 with your real WhatsApp number, country code included.
+ const whatsapp='923001234567';
+ const q=Number(qty.value);
+ const msg=`FOLIXA Order%0A%0AName: ${encodeURIComponent(document.getElementById('name').value)}%0APhone: ${encodeURIComponent(document.getElementById('phone').value)}%0AArea: ${encodeURIComponent(document.getElementById('area').value)}%0AAddress: ${encodeURIComponent(document.getElementById('address').value)}%0AQuantity: ${q}%0ATotal: Rs. ${700*q}`;
+ window.open(`https://wa.me/${whatsapp}?text=${msg}`,'_blank');
+}
+</script>
+</body>
+</html>
