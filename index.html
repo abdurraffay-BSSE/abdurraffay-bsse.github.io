@@ -3735,6 +3735,55 @@
 
         else {
 
+           /* SEND ORDER EMAIL */
+
+ const { error: emailError } =
+ await supabaseClient.functions.invoke(
+ "send-order-email",
+ {
+ body: {
+ customerName:
+ customerName,
+
+ customerPhone:
+ customerPhone,
+
+ customerEmail:
+ customerEmail,
+
+ customerArea:
+ customerArea,
+
+ customerAddress:
+ customerAddress,
+
+ bottles:
+ bottles,
+
+ paymentMethod:
+ paymentMethod,
+
+ orderNotes:
+ orderNotes,
+
+ total:
+ total
+ }
+ }
+ );
+
+
+ if (emailError) {
+
+ console.error(
+ "EMAIL ERROR:",
+ emailError
+ );
+
+ }
+
+
+
           showMessage(
 
             orderMessage,
