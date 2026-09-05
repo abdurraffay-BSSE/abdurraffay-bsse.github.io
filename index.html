@@ -1,489 +1,1677 @@
-<!-- IMPORTANT:
-     Keep all of your existing HTML/CSS above this section exactly as it is.
-     Replace ONLY the SUPABASE <script> section at the bottom with the code below.
--->
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script>
-
-  /* =====================================================
-     SUPABASE CONNECTION
-  ===================================================== */
-
-  const SUPABASE_URL =
-    "https://cbefzissqyieupusgcuy.supabase.co";
-
-  const SUPABASE_PUBLISHABLE_KEY =
-    "sb_publishable_Z2QUBWHcWiFakL_5AvFZfg_7RvqMMvu";
-
-  const supabaseClient =
-    supabase.createClient(
-      SUPABASE_URL,
-      SUPABASE_PUBLISHABLE_KEY
-    );
-
-
-  /* =====================================================
-     PHOTO CAROUSEL
-  ===================================================== */
-
-  const track =
-    document.getElementById("carouselTrack");
-
-  const dots =
-    document.querySelectorAll(".dot");
-
-  track.addEventListener("scroll", () => {
-
-    const slideWidth =
-      track.clientWidth;
-
-    const index =
-      Math.round(
-        track.scrollLeft / slideWidth
-      );
-
-    dots.forEach((dot, i) => {
-
-      dot.classList.toggle(
-        "active",
-        i === index
-      );
-
-    });
-
-  });
-
-
-  dots.forEach(dot => {
-
-    dot.addEventListener("click", () => {
-
-      const index =
-        Number(dot.dataset.slide);
-
-      track.scrollTo({
-        left: index * track.clientWidth,
-        behavior: "smooth"
-      });
-
-    });
-
-  });
-
-
-  /* =====================================================
-     PAYMENT
-  ===================================================== */
-
-  const paymentInputs =
-    document.querySelectorAll(
-      'input[name="payment"]'
-    );
-
-  const bankInfo =
-    document.getElementById("bankInfo");
-
-  paymentInputs.forEach(input => {
-
-    input.addEventListener("change", () => {
-
-      if (input.value === "Bank Transfer") {
-
-        bankInfo.classList.add("active");
-
-      } else {
-
-        bankInfo.classList.remove("active");
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOLIXA | Hair Care</title>
+  <meta
+    name="description"
+    content="FOLIXA — thoughtful everyday hair care with a blend of selected botanical ingredients and nourishing oils."
+  >
+  <style>
+    :root {
+      --green: #102f25;
+      --green-2: #194638;
+      --green-3: #2b6651;
+      --cream: #f7f3ea;
+      --cream-2: #eee8da;
+      --gold: #c7a15b;
+      --gold-light: #e0c789;
+      --white: #ffffff;
+      --ink: #18231e;
+      --muted: #68746d;
+      --line: rgba(16, 47, 37, 0.12);
+      --shadow: 0 18px 55px rgba(16, 47, 37, 0.11);
+      --radius: 22px;
+      --max: 1120px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      width: min(92%, var(--max));
+      margin: auto;
+    }
+    /* =========================
+       NAVIGATION
+    ========================== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(247, 243, 234, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 1.55rem;
+      font-weight: 900;
+      letter-spacing: 4px;
+      color: var(--green);
+    }
+    .logo span {
+      color: var(--gold);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+    .nav-links a {
+      color: var(--green);
+      font-size: 0.88rem;
+      font-weight: 700;
+      transition: 0.25s;
+    }
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+    .nav-order {
+      background: var(--green);
+      color: white !important;
+      padding: 10px 18px;
+      border-radius: 999px;
+    }
+    /* =========================
+       BUTTONS
+    ========================== */
+    .btn {
+      min-height: 52px;
+      border: none;
+      border-radius: 999px;
+      padding: 0 27px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-primary {
+      background: var(--green);
+      color: white;
+      box-shadow: 0 10px 25px rgba(16,47,37,0.18);
+    }
+    .btn-primary:hover {
+      background: var(--green-3);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(16,47,37,0.23);
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--green);
+    }
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-3px);
+    }
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    /* =========================
+       HERO
+    ========================== */
+    .hero {
+      padding: 75px 0 55px;
+      background:
+        radial-gradient(
+          circle at 90% 10%,
+          rgba(199,161,91,0.17),
+          transparent 28%
+        ),
+        var(--cream);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 55px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.7rem;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .hero h1 {
+      color: var(--green);
+      font-size: clamp(3.2rem, 7vw, 6rem);
+      line-height: 0.92;
+      letter-spacing: -4px;
+      margin-bottom: 22px;
+    }
+    .hero h1 span {
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-weight: 500;
+    }
+    .hero p {
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 27px;
+    }
+    .hero-price {
+      color: var(--green);
+      font-size: 1.15rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+    .hero-price span {
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.85rem;
+    }
+    .hero-image {
+      min-height: 430px;
+      border-radius: 34px;
+      background: linear-gradient(145deg, var(--green), var(--green-2));
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .hero-image::before {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 50%;
+    }
+    .brand-display {
+      color: white;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .brand-display h2 {
+      font-size: 3.5rem;
+      letter-spacing: 7px;
+      font-weight: 900;
+    }
+    .brand-display p {
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 0.7rem;
+      margin-top: 8px;
+    }
+    /* =========================
+       PRODUCT PHOTOS
+    ========================== */
+    .product-section {
+      background: white;
+      padding: 65px 0 70px;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .section-title h2 {
+      color: var(--green);
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      letter-spacing: -1.5px;
+    }
+    .section-title p {
+      color: var(--muted);
+      max-width: 550px;
+      margin: 8px auto 0;
+      font-size: 0.9rem;
+    }
+    .carousel {
+      position: relative;
+      max-width: 720px;
+      margin: auto;
+    }
+    .carousel-track {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      border-radius: 25px;
+    }
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+    .slide {
+      flex: 0 0 100%;
+      min-height: 440px;
+      scroll-snap-align: center;
+      background: var(--cream-2);
+      border-radius: 25px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .slide img {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+    }
+    .photo-placeholder {
+      text-align: center;
+      color: var(--muted);
+      padding: 30px;
+    }
+    .photo-placeholder strong {
+      display: block;
+      color: var(--green);
+      font-size: 1.15rem;
+      margin-bottom: 5px;
+    }
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+      margin-top: 17px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #cfcac0;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .dot.active {
+      background: var(--green);
+      transform: scale(1.2);
+    }
+    .photo-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.75rem;
+      margin-top: 15px;
+    }
+    .product-cta {
+      text-align: center;
+      margin-top: 28px;
+    }
+    .product-cta .btn {
+      min-width: 220px;
+    }
+    /* =========================
+       ORDER
+    ========================== */
+    .order {
+      padding: 70px 0;
+      background: var(--cream);
+    }
+    .order-box {
+      max-width: 820px;
+      margin: auto;
+      background: white;
+      padding: 35px;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+    .order-title {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .order-title h2 {
+      color: var(--green);
+      font-size: 2.3rem;
+    }
+    .order-title p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .field.full {
+      grid-column: 1 / -1;
+    }
+    .field label {
+      color: var(--green);
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      padding: 13px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--cream);
+      outline: none;
+      color: var(--ink);
+    }
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: var(--gold);
+    }
+    .field textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+    .payment-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .payment-option {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 13px;
+      font-size: 0.83rem;
+      cursor: pointer;
+    }
+    .payment-option input {
+      margin-right: 5px;
+    }
+    .bank-info {
+      display: none;
+      background: var(--cream-2);
+      padding: 13px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+    .bank-info.active {
+      display: block;
+    }
+    .total {
+      margin-top: 22px;
+      padding: 17px 20px;
+      background: var(--green);
+      color: white;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .total strong {
+      color: var(--gold-light);
+      font-size: 1.3rem;
+    }
+    .order-submit {
+      width: 100%;
+      margin-top: 18px;
+    }
+    .delivery-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.75rem;
+      margin-top: 10px;
+    }
+    .form-message {
+      display: none;
+      margin-top: 15px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      text-align: center;
+    }
+    .form-message.show {
+      display: block;
+    }
+    .form-message.success {
+      background: #e6f3eb;
+      color: #1d6041;
+    }
+    .form-message.error {
+      background: #f8e6e4;
+      color: #8a3028;
+    }
+    /* =========================
+       WHY FOLIXA
+    ========================== */
+    .why {
+      padding: 65px 0;
+      background: var(--green);
+      color: white;
+    }
+    .why-heading {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .why-heading h2 {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+    .why-heading p {
+      color: rgba(255,255,255,0.65);
+      max-width: 600px;
+      margin: auto;
+      font-size: 0.9rem;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    .why-card {
+      padding: 25px;
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.045);
+    }
+    .why-card span {
+      color: var(--gold-light);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+    .why-card h3 {
+      margin: 13px 0 7px;
+      font-size: 1.05rem;
+    }
+    .why-card p {
+      color: rgba(255,255,255,0.63);
+      font-size: 0.82rem;
+    }
+    /* =========================
+       REVIEWS
+    ========================== */
+    .reviews {
+      padding: 65px 0;
+      background: white;
+    }
+    .review-header {
+      text-align: center;
+      margin-bottom: 27px;
+    }
+    .review-header h2 {
+      color: var(--green);
+      font-size: 2.5rem;
+    }
+    .review-header p {
+      color: var(--muted);
+      font-size: 0.85rem;
+      max-width: 580px;
+      margin: 5px auto 0;
+    }
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+    }
+    .review-card {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      padding: 21px;
+    }
+    .review-card .stars {
+      color: var(--gold);
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      margin-bottom: 9px;
+    }
+    .review-card p {
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-bottom: 12px;
+    }
+    .review-author {
+      color: var(--green);
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+    .demo-label {
+      display: inline-block;
+      font-size: 0.6rem;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+    .review-form {
+      max-width: 650px;
+      margin: 25px auto 0;
+      background: var(--cream);
+      padding: 23px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+    }
+    .review-form h3 {
+      color: var(--green);
+      margin-bottom: 15px;
+      font-size: 1.05rem;
+    }
+    /* =========================
+       INGREDIENTS
+    ========================== */
+    .ingredients {
+      padding: 60px 0;
+      background: var(--cream);
+    }
+    .ingredient-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .ingredient {
+      background: white;
+      padding: 15px;
+      border-radius: 13px;
+      border: 1px solid var(--line);
+      color: var(--green);
+      font-weight: 800;
+      font-size: 0.82rem;
+      text-align: center;
+    }
+    /* =========================
+       HOW TO USE
+    ========================== */
+    .how {
+      padding: 60px 0;
+      background: white;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      max-width: 850px;
+      margin: auto;
+    }
+    .step {
+      text-align: center;
+      padding: 23px;
+      background: var(--cream);
+      border-radius: 17px;
+      border: 1px solid var(--line);
+    }
+    .step-number {
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    .step h3 {
+      color: var(--green);
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    .step p {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    /* =========================
+       FOOTER
+    ========================== */
+    footer {
+      padding: 35px 0 20px;
+      background: #092219;
+      color: white;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: center;
+      padding-bottom: 25px;
+    }
+    footer .logo {
+      color: white;
+    }
+    footer p {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.78rem;
+      max-width: 400px;
+      margin-top: 8px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.78rem;
+    }
+    .footer-links a:hover {
+      color: white;
+    }
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 17px;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.7rem;
+    }
+    /* =========================
+       MOBILE
+    ========================== */
+    @media (max-width: 850px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
       }
-
-    });
-
-  });
-
-
-  /* =====================================================
-     TOTAL
-  ===================================================== */
-
-  const quantity =
-    document.getElementById("quantity");
-
-  const totalPrice =
-    document.getElementById("totalPrice");
-
-  const bottlePrice = 600;
-  const delivery = 100;
-
-  function updateTotal() {
-
-    const bottles =
-      Number(quantity.value);
-
-    const total =
-      (bottlePrice * bottles) + delivery;
-
-    totalPrice.textContent =
-      "Rs. " + total.toLocaleString();
-
-  }
-
-  quantity.addEventListener(
-    "change",
-    updateTotal
-  );
-
-
-  /* =====================================================
-     MESSAGE HELPER
-  ===================================================== */
-
-  function showMessage(
-    element,
-    message,
-    type
-  ) {
-
-    element.textContent = message;
-
-    element.className =
-      "form-message show " + type;
-
-  }
-
-
-  /* =====================================================
-     LOAD APPROVED REVIEWS
-  ===================================================== */
-
-  async function loadReviews() {
-
-    const reviewGrid =
-      document.getElementById("reviewGrid");
-
-    const {
-      data,
-      error
-    } = await supabaseClient
-      .from("reviews")
-      .select(
-        "name, rating, review, created_at"
-      )
-      .eq("approved", true)
-      .order(
-        "created_at",
-        {
-          ascending: false
-        }
-      );
-
-    if (error) {
-
-      console.error(
-        "Could not load reviews:",
-        error
-      );
-
-      return;
+      .hero-image {
+        min-height: 330px;
+      }
+      .why-grid,
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+      .ingredient-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .steps {
+        grid-template-columns: 1fr;
+      }
+      .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
-
-    if (!data || data.length === 0) {
-      return;
+    @media (max-width: 600px) {
+      .nav-links {
+        display: none;
+      }
+      .hero {
+        padding: 55px 0 35px;
+      }
+      .hero h1 {
+        font-size: 3.7rem;
+      }
+      .hero-image {
+        min-height: 290px;
+      }
+      .brand-display h2 {
+        font-size: 2.7rem;
+      }
+      .slide,
+      .slide img {
+        min-height: 360px;
+        height: 360px;
+      }
+      .order-box {
+        padding: 22px;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .field.full {
+        grid-column: auto;
+      }
+      .payment-options {
+        grid-template-columns: 1fr;
+      }
+      .ingredient-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .total {
+        gap: 15px;
+      }
+      .footer-links {
+        flex-wrap: wrap;
+      }
     }
-
-    data.forEach(item => {
-
-      const card =
-        document.createElement("div");
-
-      card.className =
-        "review-card";
-
-      const stars =
-        "★".repeat(item.rating) +
-        "☆".repeat(5 - item.rating);
-
-      card.innerHTML = `
-        <div class="stars">
-          ${stars}
+  </style>
+</head>
+<body>
+  <!-- =========================
+       NAVBAR
+  ========================== -->
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">
+        FOLI<span>XA</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#product">Product</a>
+        <a href="#why">Why FOLIXA</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#order" class="nav-order">Order Now</a>
+      </nav>
+    </div>
+  </header>
+  <!-- =========================
+       HERO
+  ========================== -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">
+          Everyday Hair Care
         </div>
-
+        <h1>
+          Care for your hair.<br>
+          <span>The FOLIXA way.</span>
+        </h1>
         <p>
-          "${escapeHTML(item.review)}"
+          A thoughtfully crafted hair-care oil made with a blend
+          of selected botanical ingredients and nourishing oils.
         </p>
-
-        <div class="review-author">
-          ${escapeHTML(item.name)}
+        <div class="hero-price">
+          Rs. 600
+          <span>/ 100ml</span>
         </div>
-      `;
-
-      reviewGrid.prepend(card);
-
+        <a href="#order" class="btn btn-primary">
+          Order Now
+        </a>
+      </div>
+      <div class="hero-image">
+        <div class="brand-display">
+          <h2>FOLIXA</h2>
+          <p>Hair Care</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- =========================
+       PRODUCT PHOTOS
+  ========================== -->
+  <section class="product-section" id="product">
+    <div class="container">
+      <div class="section-title">
+        <div class="eyebrow">
+          FOLIXA
+        </div>
+        <h2>
+          See the product.
+        </h2>
+        <p>
+          Swipe through the photos to explore your FOLIXA product.
+        </p>
+      </div>
+      <div class="carousel">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="slide">
+            <div class="photo-placeholder">
+              <strong>product-1.jpg</strong>
+              Your main product photo
+            </div>
+          </div>
+          <div class="slide">
+            <div class="photo-placeholder">
+              <strong>product-2.jpg</strong>
+              Product photo
+            </div>
+          </div>
+          <div class="slide">
+            <div class="photo-placeholder">
+              <strong>product-3.jpg</strong>
+              Product photo
+            </div>
+          </div>
+          <div class="slide">
+            <div class="photo-placeholder">
+              <strong>product-4.jpg</strong>
+              Product photo
+            </div>
+          </div>
+          <div class="slide">
+            <div class="photo-placeholder">
+              <strong>product-5.jpg</strong>
+              Product photo
+            </div>
+          </div>
+        </div>
+        <div class="carousel-dots" id="carouselDots">
+          <div class="dot active" data-slide="0"></div>
+          <div class="dot" data-slide="1"></div>
+          <div class="dot" data-slide="2"></div>
+          <div class="dot" data-slide="3"></div>
+          <div class="dot" data-slide="4"></div>
+        </div>
+      </div>
+      <div class="photo-note">
+        Product photos will be added before launch.
+      </div>
+      <div class="product-cta">
+        <a href="#order" class="btn btn-gold">
+          ORDER NOW
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- =========================
+       ORDER
+  ========================== -->
+  <section class="order" id="order">
+    <div class="container">
+      <div class="order-box">
+        <div class="order-title">
+          <div class="eyebrow">
+            Get FOLIXA
+          </div>
+          <h2>
+            Place Your Order
+          </h2>
+          <p>
+            Fill in your details below.
+          </p>
+        </div>
+        <form id="orderForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="customerName">
+                Full Name *
+              </label>
+              <input
+                type="text"
+                id="customerName"
+                maxlength="100"
+                required
+              >
+            </div>
+            <div class="field">
+              <label for="customerPhone">
+                Phone Number *
+              </label>
+              <input
+                type="tel"
+                id="customerPhone"
+                maxlength="30"
+                required
+              >
+            </div>
+            <div class="field">
+              <label for="customerEmail">
+                Email *
+              </label>
+              <input
+                type="email"
+                id="customerEmail"
+                maxlength="150"
+                required
+              >
+            </div>
+            <div class="field">
+              <label for="customerArea">
+                City / Area *
+              </label>
+              <input
+                type="text"
+                id="customerArea"
+                maxlength="100"
+                required
+              >
+            </div>
+            <div class="field full">
+              <label for="customerAddress">
+                Complete Address *
+              </label>
+              <textarea
+                id="customerAddress"
+                maxlength="500"
+                placeholder="House number, street, area..."
+                required
+              ></textarea>
+            </div>
+            <div class="field">
+              <label for="quantity">
+                Number of Bottles *
+              </label>
+              <select id="quantity">
+                <option value="1">1 Bottle</option>
+                <option value="2">2 Bottles</option>
+                <option value="3">3 Bottles</option>
+                <option value="4">4 Bottles</option>
+                <option value="5">5 Bottles</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>
+                Payment Method *
+              </label>
+              <div class="payment-options">
+                <label class="payment-option">
+                  <input
+                    type="radio"
+                    name="payment"
+                    value="COD"
+                    checked
+                  >
+                  Cash on Delivery
+                </label>
+                <label class="payment-option">
+                  <input
+                    type="radio"
+                    name="payment"
+                    value="Bank Transfer"
+                  >
+                  Bank Transfer
+                </label>
+              </div>
+            </div>
+            <div class="field full">
+              <div class="bank-info" id="bankInfo">
+                <strong>
+                  Bank Transfer
+                </strong>
+                <p>
+                  Your actual bank details will be added here
+                  before launch.
+                </p>
+              </div>
+            </div>
+            <div class="field full">
+              <label for="orderNotes">
+                Order Notes
+              </label>
+              <textarea
+                id="orderNotes"
+                maxlength="1000"
+                placeholder="Optional..."
+              ></textarea>
+            </div>
+          </div>
+          <div class="total">
+            <span>
+              Total
+            </span>
+            <strong id="totalPrice">
+              Rs. 700
+            </strong>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary order-submit"
+            id="orderSubmit"
+          >
+            PLACE ORDER
+          </button>
+          <div
+            id="orderMessage"
+            class="form-message"
+          ></div>
+          <div class="delivery-note">
+            Rs. 100 delivery currently included in the total.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- =========================
+       WHY FOLIXA
+  ========================== -->
+  <section class="why" id="why">
+    <div class="container">
+      <div class="why-heading">
+        <div class="eyebrow">
+          Why FOLIXA
+        </div>
+        <h2>
+          Simple. Thoughtful. Everyday.
+        </h2>
+        <p>
+          FOLIXA focuses on making hair care easy to understand
+          and easy to make part of your routine.
+        </p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <span>01</span>
+          <h3>
+            Selected Ingredients
+          </h3>
+          <p>
+            A blend of botanical ingredients and oils selected
+            for the FOLIXA formula.
+          </p>
+        </div>
+        <div class="why-card">
+          <span>02</span>
+          <h3>
+            Easy Routine
+          </h3>
+          <p>
+            A straightforward product designed to fit into
+            your regular hair-care routine.
+          </p>
+        </div>
+        <div class="why-card">
+          <span>03</span>
+          <h3>
+            Made With Care
+          </h3>
+          <p>
+            From the formula to the presentation, FOLIXA is
+            built around thoughtful everyday care.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- =========================
+       REVIEWS
+  ========================== -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="review-header">
+        <div class="eyebrow">
+          Customer Voices
+        </div>
+        <h2>
+          Reviews
+        </h2>
+        <p>
+          Genuine customer reviews will appear here after approval.
+        </p>
+      </div>
+      <div class="review-grid" id="reviewGrid">
+        <!-- DEMO REVIEWS -->
+        <div class="review-card">
+          <span class="demo-label">
+            DEMO
+          </span>
+          <div class="stars">
+            ★★★★★
+          </div>
+          <p>
+            "The product presentation is beautiful and it feels
+            easy to include in a regular routine."
+          </p>
+          <div class="review-author">
+            Demo Customer
+          </div>
+        </div>
+        <div class="review-card">
+          <span class="demo-label">
+            DEMO
+          </span>
+          <div class="stars">
+            ★★★★★
+          </div>
+          <p>
+            "I really like the simple approach and the overall
+            presentation of FOLIXA."
+          </p>
+          <div class="review-author">
+            Demo Customer
+          </div>
+        </div>
+        <div class="review-card">
+          <span class="demo-label">
+            DEMO
+          </span>
+          <div class="stars">
+            ★★★
+          </div>
+          <p>
+            "Nice product presentation. Looking forward to
+            making it part of my routine."
+          </p>
+          <div class="review-author">
+            Demo Customer
+          </div>
+        </div>
+      </div>
+      <div class="review-form">
+        <h3>
+          Want to share your experience?
+        </h3>
+        <form id="reviewForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="reviewName">
+                Name
+              </label>
+              <input
+                type="text"
+                id="reviewName"
+                maxlength="80"
+                required
+              >
+            </div>
+            <div class="field">
+              <label for="reviewRating">
+                Rating
+              </label>
+              <select id="reviewRating" required>
+                <option value="">
+                  Select rating
+                </option>
+                <option value="5">
+                  ★★★★★ — 5 Stars
+                </option>
+                <option value="4">
+                  ★★★★ — 4 Stars
+                </option>
+                <option value="3">
+                  ★★★ — 3 Stars
+                </option>
+                <option value="2">
+                  ★★ — 2 Stars
+                </option>
+                <option value="1">
+                  ★ — 1 Star
+                </option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="reviewText">
+                Review
+              </label>
+              <textarea
+                id="reviewText"
+                maxlength="1000"
+                placeholder="Write your experience..."
+                required
+              ></textarea>
+            </div>
+          </div>
+          <br>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            id="reviewSubmit"
+          >
+            WRITE REVIEW
+          </button>
+          <div
+            id="reviewMessage"
+            class="form-message"
+          ></div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- =========================
+       INGREDIENTS
+  ========================== -->
+  <section class="ingredients" id="ingredients">
+    <div class="container">
+      <div class="section-title">
+        <div class="eyebrow">
+          The Formula
+        </div>
+        <h2>
+          What's inside?
+        </h2>
+      </div>
+      <div class="ingredient-grid">
+        <div class="ingredient">Black Seed</div>
+        <div class="ingredient">Amla</div>
+        <div class="ingredient">Methi</div>
+        <div class="ingredient">Jojoba Oil</div>
+        <div class="ingredient">Castor Oil</div>
+        <div class="ingredient">Rosemary</div>
+        <div class="ingredient">Coconut Oil</div>
+        <div class="ingredient">Olive Oil</div>
+        <div class="ingredient">Lavender Oil</div>
+      </div>
+    </div>
+  </section>
+  <!-- =========================
+       HOW TO USE
+  ========================== -->
+  <section class="how" id="how">
+    <div class="container">
+      <div class="section-title">
+        <div class="eyebrow">
+          Your Routine
+        </div>
+        <h2>
+          How to Use
+        </h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">
+            01
+          </div>
+          <h3>
+            Apply
+          </h3>
+          <p>
+            Apply a suitable amount to your scalp and hair.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">
+            02
+          </div>
+          <h3>
+            Massage
+          </h3>
+          <p>
+            Gently massage the scalp and distribute through the hair.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">
+            03
+          </div>
+          <h3>
+            Wash
+          </h3>
+          <p>
+            Leave according to your routine and wash with your regular shampoo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="logo">
+            FOLI<span>XA</span>
+          </div>
+          <p>
+            Thoughtful everyday hair care.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="#product">Product</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#ingredients">Ingredients</a>
+          <a href="#order">Order</a>
+        </div>
+      </div>
+      <div class="copyright">
+        © 2026 FOLIXA. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  <!-- =========================
+       SUPABASE
+  ========================== -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    /* =====================================================
+       SUPABASE CONNECTION
+    ===================================================== */
+    const SUPABASE_URL =
+      "https://cbefzissqyieupusgcuy.supabase.co";
+    const SUPABASE_PUBLISHABLE_KEY =
+      "sb_publishable_Z2QUBWHcWiFakL_5AvFZfg_7RvqMMvu";
+    const supabaseClient =
+      window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+      );
+    /* =====================================================
+       PHOTO CAROUSEL
+    ===================================================== */
+    const track =
+      document.getElementById("carouselTrack");
+    const dots =
+      document.querySelectorAll(".dot");
+    if (track) {
+      track.addEventListener("scroll", () => {
+        const slideWidth =
+          track.clientWidth;
+        if (!slideWidth) return;
+        const index =
+          Math.round(
+            track.scrollLeft / slideWidth
+          );
+        dots.forEach((dot, i) => {
+          dot.classList.toggle(
+            "active",
+            i === index
+          );
+        });
+      });
+    }
+    dots.forEach(dot => {
+      dot.addEventListener("click", () => {
+        const index =
+          Number(dot.dataset.slide);
+        if (!track) return;
+        track.scrollTo({
+          left: index * track.clientWidth,
+          behavior: "smooth"
+        });
+      });
     });
-
-  }
-
-
-  /* =====================================================
-     BASIC HTML ESCAPING
-  ===================================================== */
-
-  function escapeHTML(value) {
-
-    const div =
-      document.createElement("div");
-
-    div.textContent =
-      value;
-
-    return div.innerHTML;
-
-  }
-
-
-  /* =====================================================
-     REVIEW FORM
-  ===================================================== */
-
-  const reviewForm =
-    document.getElementById("reviewForm");
-
-  const reviewSubmit =
-    document.getElementById("reviewSubmit");
-
-  const reviewMessage =
-    document.getElementById("reviewMessage");
-
-  reviewForm.addEventListener(
-    "submit",
-    async function(event) {
-
-      event.preventDefault();
-
-      reviewSubmit.disabled = true;
-
-      reviewSubmit.textContent =
-        "SUBMITTING...";
-
-      reviewMessage.className =
-        "form-message";
-
-      const name =
-        document
-          .getElementById("reviewName")
-          .value
-          .trim();
-
-      const rating =
-        Number(
-          document
-            .getElementById("reviewRating")
-            .value
-        );
-
-      const review =
-        document
-          .getElementById("reviewText")
-          .value
-          .trim();
-
-
+    /* =====================================================
+       PAYMENT METHOD
+    ===================================================== */
+    const paymentInputs =
+      document.querySelectorAll(
+        'input[name="payment"]'
+      );
+    const bankInfo =
+      document.getElementById("bankInfo");
+    paymentInputs.forEach(input => {
+      input.addEventListener("change", () => {
+        if (input.value === "Bank Transfer") {
+          bankInfo.classList.add("active");
+        } else {
+          bankInfo.classList.remove("active");
+        }
+      });
+    });
+    /* =====================================================
+       TOTAL CALCULATOR
+    ===================================================== */
+    const quantity =
+      document.getElementById("quantity");
+    const totalPrice =
+      document.getElementById("totalPrice");
+    const bottlePrice = 600;
+    const delivery = 100;
+    function updateTotal() {
+      const bottles =
+        Number(quantity.value);
+      const total =
+        (bottlePrice * bottles) + delivery;
+      totalPrice.textContent =
+        "Rs. " + total.toLocaleString();
+    }
+    quantity.addEventListener(
+      "change",
+      updateTotal
+    );
+    /* =====================================================
+       MESSAGE HELPER
+    ===================================================== */
+    function showMessage(
+      element,
+      message,
+      type
+    ) {
+      element.textContent =
+        message;
+      element.className =
+        "form-message show " + type;
+    }
+    /* =====================================================
+       HTML ESCAPING
+    ===================================================== */
+    function escapeHTML(value) {
+      const div =
+        document.createElement("div");
+      div.textContent =
+        value;
+      return div.innerHTML;
+    }
+    /* =====================================================
+       LOAD APPROVED REVIEWS
+    ===================================================== */
+    async function loadReviews() {
+      const reviewGrid =
+        document.getElementById("reviewGrid");
       const {
+        data,
         error
       } = await supabaseClient
         .from("reviews")
-        .insert({
-          name: name,
-          rating: rating,
-          review: review
-        });
-
-
-      if (error) {
-
-        console.error(error);
-
-        showMessage(
-          reviewMessage,
-          "Something went wrong. Please try again.",
-          "error"
+        .select(
+          "name, rating, review, created_at"
+        )
+        .eq("approved", true)
+        .order(
+          "created_at",
+          {
+            ascending: false
+          }
         );
-
-      } else {
-
-        showMessage(
-          reviewMessage,
-          "Thank you! Your review has been submitted and will appear after approval.",
-          "success"
-        );
-
-        reviewForm.reset();
-
-      }
-
-
-      reviewSubmit.disabled = false;
-
-      reviewSubmit.textContent =
-        "WRITE REVIEW";
-
-    }
-  );
-
-
-  /* =====================================================
-     ORDER FORM
-     ===================================================== */
-
-  const orderForm =
-    document.getElementById("orderForm");
-
-  const orderSubmit =
-    document.getElementById("orderSubmit");
-
-  const orderMessage =
-    document.getElementById("orderMessage");
-
-
-  orderForm.addEventListener(
-    "submit",
-    async function(event) {
-
-      event.preventDefault();
-
-      orderSubmit.disabled = true;
-
-      orderSubmit.textContent =
-        "PLACING ORDER...";
-
-      orderMessage.className =
-        "form-message";
-
-
-      const customerName =
-        document
-          .getElementById("customerName")
-          .value
-          .trim();
-
-      const customerPhone =
-        document
-          .getElementById("customerPhone")
-          .value
-          .trim();
-
-      const customerEmail =
-        document
-          .getElementById("customerEmail")
-          .value
-          .trim();
-
-      const customerArea =
-        document
-          .getElementById("customerArea")
-          .value
-          .trim();
-
-      const customerAddress =
-        document
-          .getElementById("customerAddress")
-          .value
-          .trim();
-
-      const bottles =
-        Number(quantity.value);
-
-      const paymentMethod =
-        document.querySelector(
-          'input[name="payment"]:checked'
-        ).value;
-
-      const orderNotes =
-        document
-          .getElementById("orderNotes")
-          .value
-          .trim();
-
-      const total =
-        (bottlePrice * bottles) +
-        delivery;
-
-
-      /* =====================================================
-         SAVE ORDER TO SUPABASE
-
-         IMPORTANT:
-         We do NOT use .select() here because customers
-         should not be allowed to read orders back.
-      ===================================================== */
-
-      const {
-        error
-      } = await supabaseClient
-        .from("orders")
-        .insert({
-          customer_name: customerName,
-          phone: customerPhone,
-          email: customerEmail,
-          area: customerArea,
-          address: customerAddress,
-          quantity: bottles,
-          payment_method: paymentMethod,
-          notes: orderNotes,
-          total: total
-        });
-
-
       if (error) {
-
         console.error(
-          "Order error:",
+          "Could not load reviews:",
           error
         );
-
-        showMessage(
-          orderMessage,
-          "We couldn't place your order. Please try again.",
-          "error"
-        );
-
-      } else {
-
-        showMessage(
-          orderMessage,
-          "Order received successfully! We'll contact you shortly.",
-          "success"
-        );
-
-        orderForm.reset();
-
-        quantity.value = "1";
-
-        updateTotal();
-
-        bankInfo.classList.remove("active");
-
+        return;
       }
-
-
-      orderSubmit.disabled = false;
-
-      orderSubmit.textContent =
-        "PLACE ORDER";
-
+      if (!data || data.length === 0) {
+        return;
+      }
+      data.forEach(item => {
+        const card =
+          document.createElement("div");
+        card.className =
+          "review-card";
+        const stars =
+          "★".repeat(item.rating) +
+          "☆".repeat(5 - item.rating);
+        card.innerHTML = `
+          <div class="stars">
+            ${stars}
+          </div>
+          <p>
+            "${escapeHTML(item.review)}"
+          </p>
+          <div class="review-author">
+            ${escapeHTML(item.name)}
+          </div>
+        `;
+        reviewGrid.prepend(card);
+      });
     }
-  );
-
-
-  /* =====================================================
-     START
-  ===================================================== */
-
-  updateTotal();
-
-  loadReviews();
-
-</script>
-  
+    /* =====================================================
+       REVIEW FORM
+    ===================================================== */
+    const reviewForm =
+      document.getElementById("reviewForm");
+    const reviewSubmit =
+      document.getElementById("reviewSubmit");
+    const reviewMessage =
+      document.getElementById("reviewMessage");
+    reviewForm.addEventListener(
+      "submit",
+      async function(event) {
+        event.preventDefault();
+        reviewSubmit.disabled = true;
+        reviewSubmit.textContent =
+          "SUBMITTING...";
+        reviewMessage.className =
+          "form-message";
+        const name =
+          document
+            .getElementById("reviewName")
+            .value
+            .trim();
+        const rating =
+          Number(
+            document
+              .getElementById("reviewRating")
+              .value
+          );
+        const review =
+          document
+            .getElementById("reviewText")
+            .value
+            .trim();
+        const {
+          error
+        } = await supabaseClient
+          .from("reviews")
+          .insert({
+            name: name,
+            rating: rating,
+            review: review
+          });
+        if (error) {
+          console.error(
+            "Review error:",
+            error
+          );
+          showMessage(
+            reviewMessage,
+            "Something went wrong. Please try again.",
+            "error"
+          );
+        } else {
+          showMessage(
+            reviewMessage,
+            "Thank you! Your review has been submitted and will appear after approval.",
+            "success"
+          );
+          reviewForm.reset();
+        }
+        reviewSubmit.disabled = false;
+        reviewSubmit.textContent =
+          "WRITE REVIEW";
+      }
+    );
+    /* =====================================================
+       ORDER FORM
+    ===================================================== */
+    const orderForm =
+      document.getElementById("orderForm");
+    const orderSubmit =
+      document.getElementById("orderSubmit");
+    const orderMessage =
+      document.getElementById("orderMessage");
+    orderForm.addEventListener(
+      "submit",
+      async function(event) {
+        event.preventDefault();
+        orderSubmit.disabled = true;
+        orderSubmit.textContent =
+          "PLACING ORDER...";
+        orderMessage.className =
+          "form-message";
+        const customerName =
+          document
+            .getElementById("customerName")
+            .value
+            .trim();
+        const customerPhone =
+          document
+            .getElementById("customerPhone")
+            .value
+            .trim();
+        const customerEmail =
+          document
+            .getElementById("customerEmail")
+            .value
+            .trim();
+        const customerArea =
+          document
+            .getElementById("customerArea")
+            .value
+            .trim();
+        const customerAddress =
+          document
+            .getElementById("customerAddress")
+            .value
+            .trim();
+        const bottles =
+          Number(quantity.value);
+        const paymentSelected =
+          document.querySelector(
+            'input[name="payment"]:checked'
+          );
+        const paymentMethod =
+          paymentSelected
+            ? paymentSelected.value
+            : "COD";
+        const orderNotes =
+          document
+            .getElementById("orderNotes")
+            .value
+            .trim();
+        const total =
+          (bottlePrice * bottles) +
+          delivery;
+        /* =================================================
+           SAVE ORDER
+           IMPORTANT:
+           We intentionally do NOT use:
+             .select()
+             .single()
+           Customers can submit orders but cannot read
+           orders back from the database.
+        ================================================= */
+        const {
+          error
+        } = await supabaseClient
+          .from("orders")
+          .insert({
+            customer_name: customerName,
+            phone: customerPhone,
+            email: customerEmail,
+            area: customerArea,
+            address: customerAddress,
+            quantity: bottles,
+            payment_method: paymentMethod,
+            notes: orderNotes,
+            total: total
+          });
+        if (error) {
+          console.error(
+            "ORDER ERROR:",
+            error
+          );
+          showMessage(
+            orderMessage,
+            "We couldn't place your order. Please try again.",
+            "error"
+          );
+        } else {
+          showMessage(
+            orderMessage,
+            "Order received successfully! We'll contact you shortly.",
+            "success"
+          );
+          orderForm.reset();
+          quantity.value = "1";
+          updateTotal();
+          bankInfo.classList.remove("active");
+        }
+        orderSubmit.disabled = false;
+        orderSubmit.textContent =
+          "PLACE ORDER";
+      }
+    );
+    /* =====================================================
+       START
+    ===================================================== */
+    updateTotal();
+    loadReviews();
+  </script>
+</body>
+</html>
