@@ -224,6 +224,40 @@
       gap: 12px;
     }
 
+    /* BANK PAYMENT */
+
+    .bank-payment {
+      display: none;
+      background: #f2f5f0;
+      border: 1px solid #d7ddd5;
+      border-radius: 12px;
+      padding: 15px;
+      margin-top: 2px;
+    }
+
+    .bank-payment h3 {
+      color: #23432e;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .bank-payment p {
+      font-size: 13px;
+      color: #59655c;
+      margin: 4px 0;
+    }
+
+    .bank-payment strong {
+      color: #23432e;
+    }
+
+    .payment-note {
+      margin-top: 10px !important;
+      padding-top: 10px;
+      border-top: 1px solid #d7ddd5;
+      font-weight: 600;
+    }
+
     .total-box {
       background: #f2f5f0;
       border-radius: 12px;
@@ -285,6 +319,36 @@
 
     .error {
       color: #a83232;
+    }
+
+    /* FLOATING WHATSAPP BUTTON */
+
+    .whatsapp-button {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.20);
+      z-index: 9999;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .whatsapp-button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 7px 22px rgba(0, 0, 0, 0.25);
+    }
+
+    .whatsapp-button svg {
+      width: 30px;
+      height: 30px;
     }
 
     section:not(.hero) {
@@ -416,6 +480,7 @@
     }
 
     @media (max-width: 850px) {
+
       nav {
         padding: 15px 5%;
       }
@@ -444,6 +509,7 @@
     }
 
     @media (max-width: 550px) {
+
       nav {
         flex-direction: column;
         gap: 10px;
@@ -485,6 +551,19 @@
       .section-title {
         font-size: 28px;
       }
+
+      /* Smaller WhatsApp button on phones */
+      .whatsapp-button {
+        width: 52px;
+        height: 52px;
+        right: 16px;
+        bottom: 16px;
+      }
+
+      .whatsapp-button svg {
+        width: 28px;
+        height: 28px;
+      }
     }
   </style>
 </head>
@@ -492,7 +571,10 @@
 <body>
 
   <nav>
-    <div class="logo">FOLIXA</div>
+
+    <div class="logo">
+      FOLIXA
+    </div>
 
     <ul>
       <li><a href="#order">Order</a></li>
@@ -500,10 +582,12 @@
       <li><a href="#how-to-use">How to Use</a></li>
       <li><a href="#reviews">Reviews</a></li>
     </ul>
+
   </nav>
 
 
   <!-- PRODUCT + ORDER -->
+
   <section class="hero" id="order">
 
     <div class="product-area">
@@ -537,27 +621,38 @@
 
       </div>
 
+
       <div class="product-info">
 
         <h1>FOLIXA</h1>
 
-        <p class="tagline">Natural Hair Oil</p>
+        <p class="tagline">
+          Natural Hair Oil
+        </p>
 
-        <div class="price">Rs. 899</div>
+        <div class="price">
+          Rs. 899
+        </div>
 
-        <div class="price-note">Buy more, save more</div>
+        <div class="price-note">
+          Buy more, save more
+        </div>
 
         <div class="bulk-prices">
+
           <span>2 bottles → Rs. 849 each</span>
           <span>3 bottles → Rs. 799 each</span>
           <span>4 bottles → Rs. 749 each</span>
           <span>5 bottles → Rs. 699 each</span>
+
         </div>
 
         <div class="details">
+
           <span>100ml</span>
           <span>•</span>
           <span>Delivery Rs. 100</span>
+
         </div>
 
       </div>
@@ -566,13 +661,17 @@
 
 
     <!-- ORDER FORM -->
+
     <div class="order-card">
 
-      <h2>Place Your Order</h2>
+      <h2>
+        Place Your Order
+      </h2>
 
       <p>
         Fill in your details and we'll contact you to confirm your order.
       </p>
+
 
       <form id="orderForm">
 
@@ -607,7 +706,9 @@
         >
 
 
-        <label for="name">Full Name</label>
+        <label for="name">
+          Full Name
+        </label>
 
         <input
           type="text"
@@ -618,7 +719,9 @@
         >
 
 
-        <label for="phone">Phone Number</label>
+        <label for="phone">
+          Phone Number
+        </label>
 
         <input
           type="tel"
@@ -629,7 +732,9 @@
         >
 
 
-        <label for="address">Delivery Address</label>
+        <label for="address">
+          Delivery Address
+        </label>
 
         <textarea
           id="address"
@@ -643,7 +748,9 @@
 
           <div>
 
-            <label for="city">City</label>
+            <label for="city">
+              City
+            </label>
 
             <input
               type="text"
@@ -658,7 +765,9 @@
 
           <div>
 
-            <label for="quantity">Quantity</label>
+            <label for="quantity">
+              Quantity
+            </label>
 
             <select
               name="quantity"
@@ -666,11 +775,25 @@
               required
             >
 
-              <option value="1">1 Bottle</option>
-              <option value="2">2 Bottles</option>
-              <option value="3">3 Bottles</option>
-              <option value="4">4 Bottles</option>
-              <option value="5">5 Bottles</option>
+              <option value="1">
+                1 Bottle
+              </option>
+
+              <option value="2">
+                2 Bottles
+              </option>
+
+              <option value="3">
+                3 Bottles
+              </option>
+
+              <option value="4">
+                4 Bottles
+              </option>
+
+              <option value="5">
+                5 Bottles
+              </option>
 
             </select>
 
@@ -679,7 +802,9 @@
         </div>
 
 
-        <label for="payment">Payment Method</label>
+        <label for="payment">
+          Payment Method
+        </label>
 
         <select
           name="payment"
@@ -698,15 +823,76 @@
         </select>
 
 
+        <!-- BANK DETAILS -->
+
+        <div
+          id="bankPayment"
+          class="bank-payment"
+        >
+
+          <h3>
+            Bank Payment
+          </h3>
+
+          <p>
+            <strong>Meezan Bank</strong>
+          </p>
+
+          <p>
+            Account Name: MUHAMMAD SHAKEEL/SHAHIDA SHAKEEL
+          </p>
+
+          <p>
+            Account No: 99150104571475
+          </p>
+
+          <p>
+            IBAN: PK12MEZN0099150104571475
+          </p>
+
+
+          <br>
+
+
+          <p>
+            <strong>NayaPay</strong>
+          </p>
+
+          <p>
+            Account Name: Anushay Shakeel
+          </p>
+
+          <p>
+            Account No: 03112354478
+          </p>
+
+          <p>
+            IBAN: PK50NAYA1234503112354478
+          </p>
+
+
+          <p class="payment-note">
+            After payment, send the screenshot on WhatsApp to confirm your order.
+          </p>
+
+        </div>
+
+
+        <!-- TOTAL -->
+
         <div class="total-box">
 
           <div class="total-line">
 
-            <span>Product</span>
+            <span>
+              Product
+            </span>
 
             <span>
               Rs.
-              <span id="productTotal">899</span>
+              <span id="productTotal">
+                899
+              </span>
             </span>
 
           </div>
@@ -714,20 +900,28 @@
 
           <div class="total-line">
 
-            <span>Delivery</span>
+            <span>
+              Delivery
+            </span>
 
-            <span>Rs. 100</span>
+            <span>
+              Rs. 100
+            </span>
 
           </div>
 
 
           <div class="total-line grand-total">
 
-            <span>Total</span>
+            <span>
+              Total
+            </span>
 
             <span>
               Rs.
-              <span id="grandTotal">999</span>
+              <span id="grandTotal">
+                999
+              </span>
             </span>
 
           </div>
@@ -757,6 +951,7 @@
 
 
   <!-- INGREDIENTS -->
+
   <section id="ingredients">
 
     <div class="section-inner">
@@ -767,15 +962,41 @@
 
       <div class="ingredients-grid">
 
-        <div class="ingredient">Black Seed</div>
-        <div class="ingredient">Amla</div>
-        <div class="ingredient">Methi</div>
-        <div class="ingredient">Jojoba Oil</div>
-        <div class="ingredient">Castor Oil</div>
-        <div class="ingredient">Rosemary</div>
-        <div class="ingredient">Coconut Oil</div>
-        <div class="ingredient">Olive Oil</div>
-        <div class="ingredient">Lavender Oil</div>
+        <div class="ingredient">
+          Black Seed
+        </div>
+
+        <div class="ingredient">
+          Amla
+        </div>
+
+        <div class="ingredient">
+          Methi
+        </div>
+
+        <div class="ingredient">
+          Jojoba Oil
+        </div>
+
+        <div class="ingredient">
+          Castor Oil
+        </div>
+
+        <div class="ingredient">
+          Rosemary
+        </div>
+
+        <div class="ingredient">
+          Coconut Oil
+        </div>
+
+        <div class="ingredient">
+          Olive Oil
+        </div>
+
+        <div class="ingredient">
+          Lavender Oil
+        </div>
 
       </div>
 
@@ -785,6 +1006,7 @@
 
 
   <!-- HOW TO USE -->
+
   <section id="how-to-use">
 
     <div class="section-inner">
@@ -797,11 +1019,15 @@
 
         <div class="step">
 
-          <div class="step-number">1</div>
+          <div class="step-number">
+            1
+          </div>
 
           <div>
 
-            <h3>Apply</h3>
+            <h3>
+              Apply
+            </h3>
 
             <p>
               Apply FOLIXA hair oil directly to your scalp and hair.
@@ -814,11 +1040,15 @@
 
         <div class="step">
 
-          <div class="step-number">2</div>
+          <div class="step-number">
+            2
+          </div>
 
           <div>
 
-            <h3>Massage</h3>
+            <h3>
+              Massage
+            </h3>
 
             <p>
               Gently massage your scalp with your fingertips.
@@ -831,11 +1061,15 @@
 
         <div class="step">
 
-          <div class="step-number">3</div>
+          <div class="step-number">
+            3
+          </div>
 
           <div>
 
-            <h3>Wash</h3>
+            <h3>
+              Wash
+            </h3>
 
             <p>
               Leave the oil on for a while and wash your hair normally.
@@ -853,6 +1087,7 @@
 
 
   <!-- REVIEWS -->
+
   <section id="reviews">
 
     <div class="section-inner">
@@ -921,15 +1156,49 @@
 
 
   <!-- FOOTER -->
+
   <footer>
 
-    <h2>FOLIXA</h2>
+    <h2>
+      FOLIXA
+    </h2>
 
     <p>
       Natural Hair Care • Made with Care
     </p>
 
   </footer>
+
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+
+  <a
+    class="whatsapp-button"
+    href="https://wa.me/923182784630?text=Hello%20FOLIXA%2C%20I%20have%20made%20the%20payment%20and%20would%20like%20to%20send%20the%20screenshot%20to%20confirm%20my%20order."
+    target="_blank"
+    rel="noopener"
+    aria-label="Contact FOLIXA on WhatsApp"
+    title="Send payment screenshot on WhatsApp"
+  >
+
+    <svg
+      viewBox="0 0 32 32"
+      aria-hidden="true"
+    >
+
+      <path
+        fill="white"
+        d="M19.11 17.29c-.27-.14-1.59-.78-1.84-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.67 4.14.65.28 1.16.45 1.56.58.66.21 1.26.18 1.73.11.53-.08 1.59-.65 1.81-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"
+      />
+
+      <path
+        fill="white"
+        d="M16.02 3.2c-7.07 0-12.82 5.75-12.82 12.82 0 2.26.59 4.39 1.62 6.24L3.2 28.8l6.69-1.57a12.77 12.77 0 0 0 6.13 1.57h.01c7.07 0 12.82-5.75 12.82-12.82S23.09 3.2 16.02 3.2zm0 23.45h-.01c-2.03 0-4.02-.55-5.76-1.6l-.41-.24-3.97.93.95-3.87-.27-.4a10.65 10.65 0 1 1 9.47 5.18z"
+      />
+
+    </svg>
+
+  </a>
 
 
   <script>
@@ -939,10 +1208,17 @@
     }
 
 
-    const form = document.getElementById("orderForm");
+    const form =
+      document.getElementById("orderForm");
 
     const quantity =
       document.getElementById("quantity");
+
+    const payment =
+      document.getElementById("payment");
+
+    const bankPayment =
+      document.getElementById("bankPayment");
 
     const productTotal =
       document.getElementById("productTotal");
@@ -977,6 +1253,34 @@
 
     };
 
+
+    /* SHOW / HIDE BANK DETAILS */
+
+    function updatePayment() {
+
+      if (payment.value === "Bank Transfer") {
+
+        bankPayment.style.display = "block";
+
+      } else {
+
+        bankPayment.style.display = "none";
+
+      }
+
+    }
+
+
+    payment.addEventListener(
+      "change",
+      updatePayment
+    );
+
+
+    updatePayment();
+
+
+    /* UPDATE TOTAL */
 
     function updateTotal() {
 
@@ -1014,6 +1318,8 @@
 
     updateTotal();
 
+
+    /* SUBMIT ORDER */
 
     form.addEventListener(
       "submit",
@@ -1080,6 +1386,8 @@
             form.reset();
 
             updateTotal();
+
+            updatePayment();
 
           } else {
 
