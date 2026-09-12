@@ -12,15 +12,11 @@
 
   <title>FOLIXA | Natural Hair Oil</title>
 
-  <!--
-    Preload the main product image.
-    This tells the browser to start loading the main product
-    image as early as possible.
-  -->
+  <!-- MAIN PRODUCT IMAGE -->
   <link
     rel="preload"
     as="image"
-    href="images/1A5515F9-CCA5-4905-B22B-E6490699E786.png"
+    href="images/folixa-1.webp"
   >
 
   <style>
@@ -31,11 +27,9 @@
       padding: 0;
     }
 
-
     html {
       scroll-behavior: smooth;
     }
-
 
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -44,7 +38,6 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
 
     img {
       max-width: 100%;
@@ -74,7 +67,6 @@
       align-items: center;
     }
 
-
     .logo {
       font-size: 25px;
       font-weight: 800;
@@ -82,13 +74,11 @@
       color: #23432e;
     }
 
-
     nav ul {
       list-style: none;
       display: flex;
       gap: 28px;
     }
-
 
     nav a {
       text-decoration: none;
@@ -96,7 +86,6 @@
       font-weight: 600;
       font-size: 14px;
     }
-
 
     nav a:hover {
       color: #8a6632;
@@ -122,19 +111,15 @@
       align-items: center;
     }
 
-
     .product-area {
       text-align: center;
       min-width: 0;
     }
 
 
-    /*
-      BIGGER MAIN PRODUCT IMAGE
-
-      The image is now larger visually without
-      increasing the actual file size.
-    */
+    /* =========================
+       MAIN PRODUCT IMAGE
+    ========================= */
 
     .product-main {
       width: 100%;
@@ -149,14 +134,8 @@
 
       margin: 0 auto;
 
-      /*
-        Helps browser reserve the correct area.
-      */
       aspect-ratio: 1 / 1;
 
-      /*
-        Smooth image rendering.
-      */
       image-rendering: auto;
     }
 
@@ -177,7 +156,6 @@
       margin-top: 12px;
     }
 
-
     .product-gallery img {
       width: 90px;
 
@@ -195,12 +173,8 @@
         transform 0.2s ease,
         border-color 0.2s ease;
 
-      /*
-        Prevent layout shifting.
-      */
       aspect-ratio: 1 / 1;
     }
-
 
     .product-gallery img:hover {
       border-color: #a47738;
@@ -219,7 +193,6 @@
       text-align: center;
     }
 
-
     .product-info h1 {
       font-size: 46px;
 
@@ -228,7 +201,6 @@
       color: #23432e;
     }
 
-
     .tagline {
       color: #657267;
 
@@ -236,7 +208,6 @@
 
       margin-top: -5px;
     }
-
 
     .price {
       font-size: 30px;
@@ -248,7 +219,6 @@
       margin-top: 10px;
     }
 
-
     .price-note {
       color: #a47738;
 
@@ -258,7 +228,6 @@
 
       margin-top: -5px;
     }
-
 
     .bulk-prices {
       max-width: 440px;
@@ -274,7 +243,6 @@
       gap: 8px;
     }
 
-
     .bulk-prices span {
       background: #eef2ed;
 
@@ -288,7 +256,6 @@
 
       font-weight: 600;
     }
-
 
     .details {
       display: flex;
@@ -322,7 +289,6 @@
       border: 1px solid #e5e1d7;
     }
 
-
     .order-card h2 {
       color: #23432e;
 
@@ -330,7 +296,6 @@
 
       margin-bottom: 6px;
     }
-
 
     .order-card > p {
       color: #707970;
@@ -340,7 +305,6 @@
       margin-bottom: 25px;
     }
 
-
     form {
       display: flex;
 
@@ -348,7 +312,6 @@
 
       gap: 15px;
     }
-
 
     label {
       font-size: 13px;
@@ -359,7 +322,6 @@
 
       margin-bottom: -8px;
     }
-
 
     input,
     select,
@@ -381,20 +343,17 @@
       outline: none;
     }
 
-
     input:focus,
     select:focus,
     textarea:focus {
       border-color: #55735d;
     }
 
-
     textarea {
       resize: vertical;
 
       min-height: 90px;
     }
-
 
     .two-columns {
       display: grid;
@@ -423,7 +382,6 @@
       margin-top: 2px;
     }
 
-
     .bank-payment h3 {
       color: #23432e;
 
@@ -431,7 +389,6 @@
 
       margin-bottom: 8px;
     }
-
 
     .bank-payment p {
       font-size: 13px;
@@ -441,11 +398,9 @@
       margin: 4px 0;
     }
 
-
     .bank-payment strong {
       color: #23432e;
     }
-
 
     .payment-note {
       margin-top: 10px !important;
@@ -472,7 +427,6 @@
       margin-top: 5px;
     }
 
-
     .total-line {
       display: flex;
 
@@ -484,7 +438,6 @@
 
       color: #59655c;
     }
-
 
     .grand-total {
       border-top: 1px solid #d7ddd5;
@@ -529,13 +482,11 @@
         transform 0.2s ease;
     }
 
-
     .order-button:hover {
       background: #315b3e;
 
       transform: translateY(-1px);
     }
-
 
     .order-button:disabled {
       opacity: 0.6;
@@ -544,7 +495,6 @@
 
       transform: none;
     }
-
 
     .form-message {
       text-align: center;
@@ -556,11 +506,9 @@
       margin-top: 5px;
     }
 
-
     .success {
       color: #2c7544;
     }
-
 
     .error {
       color: #a83232;
@@ -606,14 +554,12 @@
         box-shadow 0.2s ease;
     }
 
-
     .whatsapp-button:hover {
       transform: scale(1.08);
 
       box-shadow:
         0 7px 22px rgba(0, 0, 0, 0.25);
     }
-
 
     .whatsapp-button svg {
       width: 30px;
@@ -630,13 +576,11 @@
       padding: 75px 25px;
     }
 
-
     .section-inner {
       max-width: 1100px;
 
       margin: auto;
     }
-
 
     .section-title {
       text-align: center;
@@ -662,7 +606,6 @@
       gap: 15px;
     }
 
-
     .ingredient {
       background: white;
 
@@ -681,7 +624,6 @@
       box-shadow:
         0 5px 20px rgba(30, 45, 35, 0.04);
     }
-
 
     #ingredients {
       background: #f0f2ec;
@@ -702,7 +644,6 @@
       gap: 20px;
     }
 
-
     .step {
       display: flex;
 
@@ -718,7 +659,6 @@
 
       border: 1px solid #e5e1d7;
     }
-
 
     .step-number {
       min-width: 45px;
@@ -740,13 +680,11 @@
       font-weight: 800;
     }
 
-
     .step h3 {
       color: #23432e;
 
       margin-bottom: 3px;
     }
-
 
     .step p {
       color: #6b746d;
@@ -763,7 +701,6 @@
       background: #f0f2ec;
     }
 
-
     .reviews {
       display: grid;
 
@@ -772,7 +709,6 @@
 
       gap: 20px;
     }
-
 
     .review {
       background: white;
@@ -784,7 +720,6 @@
       border: 1px solid #e5e1d7;
     }
 
-
     .stars {
       color: #b18546;
 
@@ -793,13 +728,11 @@
       margin-bottom: 10px;
     }
 
-
     .review p {
       color: #606960;
 
       font-size: 14px;
     }
-
 
     .review strong {
       display: block;
@@ -826,13 +759,11 @@
       padding: 35px 20px;
     }
 
-
     footer h2 {
       letter-spacing: 3px;
 
       margin-bottom: 5px;
     }
-
 
     footer p {
       color: #c7d0ca;
@@ -851,11 +782,9 @@
         padding: 15px 5%;
       }
 
-
       nav ul {
         gap: 15px;
       }
-
 
       .hero {
         grid-template-columns: 1fr;
@@ -865,17 +794,11 @@
         padding-top: 40px;
       }
 
-
-      /*
-        Larger image on tablet.
-      */
-
       .product-main {
         max-width: 500px;
 
         height: 500px;
       }
-
 
       .product-gallery img {
         width: 82px;
@@ -883,12 +806,10 @@
         height: 82px;
       }
 
-
       .ingredients-grid {
         grid-template-columns:
           repeat(2, 1fr);
       }
-
 
       .reviews {
         grid-template-columns: 1fr;
@@ -909,16 +830,13 @@
         gap: 10px;
       }
 
-
       nav ul {
         gap: 18px;
       }
 
-
       nav a {
         font-size: 13px;
       }
-
 
       .hero {
         padding-left: 15px;
@@ -930,14 +848,6 @@
         gap: 35px;
       }
 
-
-      /*
-        BIGGER MOBILE PRODUCT IMAGE
-
-        Previously: 320px
-        Now: 390px
-      */
-
       .product-main {
         width: 100%;
 
@@ -946,13 +856,11 @@
         height: 390px;
       }
 
-
       .product-gallery {
         gap: 10px;
 
         margin-top: 10px;
       }
-
 
       .product-gallery img {
         width: 78px;
@@ -962,58 +870,45 @@
         border-radius: 10px;
       }
 
-
       .product-info {
         margin-top: 20px;
       }
-
 
       .product-info h1 {
         font-size: 38px;
       }
 
-
       .tagline {
         font-size: 17px;
       }
-
 
       .price {
         font-size: 28px;
       }
 
-
       .order-card {
         padding: 23px 18px;
       }
-
 
       .two-columns {
         grid-template-columns: 1fr;
       }
 
-
       .ingredients-grid {
         grid-template-columns: 1fr 1fr;
       }
-
 
       section:not(.hero) {
         padding: 55px 18px;
       }
 
-
       .section-title {
         font-size: 28px;
       }
 
-
       .step {
         align-items: flex-start;
       }
-
-
-      /* WhatsApp */
 
       .whatsapp-button {
         width: 52px;
@@ -1024,7 +919,6 @@
 
         bottom: 16px;
       }
-
 
       .whatsapp-button svg {
         width: 28px;
@@ -1045,18 +939,15 @@
         height: 350px;
       }
 
-
       .product-gallery img {
         width: 68px;
 
         height: 68px;
       }
 
-
       nav ul {
         gap: 12px;
       }
-
 
       nav a {
         font-size: 12px;
@@ -1081,7 +972,6 @@
     <div class="logo">
       FOLIXA
     </div>
-
 
     <ul>
 
@@ -1125,30 +1015,20 @@
   >
 
 
-    <!-- PRODUCT -->
+    <!-- =========================
+         PRODUCT
+    ========================= -->
 
     <div class="product-area">
 
 
-      <!--
-        MAIN PRODUCT IMAGE
-
-        fetchpriority="high":
-        Loads this important image sooner.
-
-        decoding="async":
-        Allows the browser to decode the image
-        without unnecessarily blocking page rendering.
-
-        width / height:
-        Helps prevent layout shifting.
-      -->
+      <!-- MAIN PRODUCT IMAGE -->
 
       <img
         id="mainProduct"
         class="product-main"
 
-        src="images/1A5515F9-CCA5-4905-B22B-E6490699E786.png"
+        src="images/folixa-1.webp"
 
         alt="FOLIXA Natural Hair Oil 100ml"
 
@@ -1161,13 +1041,17 @@
       >
 
 
-      <!-- PRODUCT GALLERY -->
+      <!-- =========================
+           PRODUCT GALLERY
+      ========================= -->
 
       <div class="product-gallery">
 
 
+        <!-- IMAGE 1 -->
+
         <img
-          src="images/1A5515F9-CCA5-4905-B22B-E6490699E786.png"
+          src="images/folixa-1.webp"
 
           alt="FOLIXA Hair Oil front view"
 
@@ -1182,10 +1066,12 @@
         >
 
 
-        <img
-          src="images/36CDB868-DE61-4D28-81CE-5B977BA0173B.png"
+        <!-- IMAGE 2 -->
 
-          alt="FOLIXA Hair Oil product view"
+        <img
+          src="images/folixa-2.webp"
+
+          alt="FOLIXA Hair Oil product photography"
 
           width="90"
           height="90"
@@ -1198,10 +1084,12 @@
         >
 
 
-        <img
-          src="images/4F6B703D-731F-4A58-8645-93FBAD5C719D.png"
+        <!-- IMAGE 3 -->
 
-          alt="FOLIXA Hair Oil packaging"
+        <img
+          src="images/folixa-3.webp"
+
+          alt="FOLIXA Hair Oil ingredients and usage"
 
           width="90"
           height="90"
@@ -1217,7 +1105,9 @@
 
 
 
-      <!-- PRODUCT INFO -->
+      <!-- =========================
+           PRODUCT INFORMATION
+      ========================= -->
 
       <div class="product-info">
 
@@ -1225,16 +1115,13 @@
           FOLIXA
         </h1>
 
-
         <p class="tagline">
           Natural Hair Oil
         </p>
 
-
         <div class="price">
           Rs. 899
         </div>
-
 
         <div class="price-note">
           Buy more, save more
@@ -1294,7 +1181,6 @@
         Place Your Order
       </h2>
 
-
       <p>
         Fill in your details and we'll contact you to confirm your order.
       </p>
@@ -1302,6 +1188,8 @@
 
       <form id="orderForm">
 
+
+        <!-- WEB3FORMS -->
 
         <input
           type="hidden"
@@ -1345,7 +1233,6 @@
           Full Name
         </label>
 
-
         <input
           type="text"
           id="name"
@@ -1363,7 +1250,6 @@
           Phone Number
         </label>
 
-
         <input
           type="tel"
           id="phone"
@@ -1380,7 +1266,6 @@
         <label for="address">
           Delivery Address
         </label>
-
 
         <textarea
           id="address"
@@ -1403,7 +1288,6 @@
               City
             </label>
 
-
             <input
               type="text"
               id="city"
@@ -1416,13 +1300,11 @@
           </div>
 
 
-
           <div>
 
             <label for="quantity">
               Quantity
             </label>
-
 
             <select
               name="quantity"
@@ -1464,7 +1346,6 @@
           Payment Method
         </label>
 
-
         <select
           name="payment"
           id="payment"
@@ -1503,16 +1384,13 @@
             </strong>
           </p>
 
-
           <p>
             Account Name: MUHAMMAD SHAKEEL/SHAHIDA SHAKEEL
           </p>
 
-
           <p>
             Account No: 99150104571475
           </p>
-
 
           <p>
             IBAN: PK12MEZN0099150104571475
@@ -1528,16 +1406,13 @@
             </strong>
           </p>
 
-
           <p>
             Account Name: Anushay Shakeel
           </p>
 
-
           <p>
             Account No: 03112354478
           </p>
-
 
           <p>
             IBAN: PK50NAYA1234503112354478
@@ -1565,7 +1440,6 @@
               Product
             </span>
 
-
             <span>
               Rs.
               <span id="productTotal">
@@ -1576,13 +1450,11 @@
           </div>
 
 
-
           <div class="total-line">
 
             <span>
               Delivery
             </span>
-
 
             <span>
               Rs. 100
@@ -1591,13 +1463,11 @@
           </div>
 
 
-
           <div class="total-line grand-total">
 
             <span>
               Total
             </span>
-
 
             <span>
               Rs.
@@ -1612,7 +1482,7 @@
 
 
 
-        <!-- SUBMIT -->
+        <!-- SUBMIT BUTTON -->
 
         <button
           class="order-button"
@@ -1644,7 +1514,6 @@
 
     <div class="section-inner">
 
-
       <h2 class="section-title">
         Natural Ingredients
       </h2>
@@ -1652,46 +1521,37 @@
 
       <div class="ingredients-grid">
 
-
         <div class="ingredient">
           Black Seed
         </div>
-
 
         <div class="ingredient">
           Amla
         </div>
 
-
         <div class="ingredient">
           Methi
         </div>
-
 
         <div class="ingredient">
           Jojoba Oil
         </div>
 
-
         <div class="ingredient">
           Castor Oil
         </div>
-
 
         <div class="ingredient">
           Rosemary
         </div>
 
-
         <div class="ingredient">
           Coconut Oil
         </div>
 
-
         <div class="ingredient">
           Olive Oil
         </div>
-
 
         <div class="ingredient">
           Lavender Oil
@@ -1713,7 +1573,6 @@
 
     <div class="section-inner">
 
-
       <h2 class="section-title">
         How to Use
       </h2>
@@ -1728,13 +1587,11 @@
             1
           </div>
 
-
           <div>
 
             <h3>
               Apply
             </h3>
-
 
             <p>
               Apply FOLIXA hair oil directly to your scalp and hair.
@@ -1752,13 +1609,11 @@
             2
           </div>
 
-
           <div>
 
             <h3>
               Massage
             </h3>
-
 
             <p>
               Gently massage your scalp with your fingertips.
@@ -1776,13 +1631,11 @@
             3
           </div>
 
-
           <div>
 
             <h3>
               Wash
             </h3>
-
 
             <p>
               Leave the oil on for a while and wash your hair normally.
@@ -1808,7 +1661,6 @@
 
     <div class="section-inner">
 
-
       <h2 class="section-title">
         Customer Reviews
       </h2>
@@ -1823,11 +1675,9 @@
             ★★★★★
           </div>
 
-
           <p>
             Really nice oil and feels great on my hair.
           </p>
-
 
           <strong>
             Verified Customer
@@ -1842,13 +1692,11 @@
           <div class="stars">
             ★★★★★
           </div>
-
 
           <p>
             I liked the natural ingredients and packaging.
           </p>
 
-
           <strong>
             Verified Customer
           </strong>
@@ -1863,11 +1711,9 @@
             ★★★★★
           </div>
 
-
           <p>
             Good product and fast delivery.
           </p>
-
 
           <strong>
             Verified Customer
@@ -1892,7 +1738,6 @@
     <h2>
       FOLIXA
     </h2>
-
 
     <p>
       Natural Hair Care • Made with Care
@@ -1926,12 +1771,10 @@
       aria-hidden="true"
     >
 
-
       <path
         fill="white"
         d="M19.11 17.29c-.27-.14-1.59-.78-1.84-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3s.98 2.67 1.12 2.85c.14.18 1.93 2.95 4.67 4.14.65.28 1.16.45 1.56.58.66.21 1.26.18 1.73.11.53-.08 1.59-.65 1.81-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"
       />
-
 
       <path
         fill="white"
@@ -1973,34 +1816,26 @@
     const form =
       document.getElementById("orderForm");
 
-
     const quantity =
       document.getElementById("quantity");
-
 
     const payment =
       document.getElementById("payment");
 
-
     const bankPayment =
       document.getElementById("bankPayment");
-
 
     const productTotal =
       document.getElementById("productTotal");
 
-
     const grandTotal =
       document.getElementById("grandTotal");
-
 
     const totalHidden =
       document.getElementById("totalHidden");
 
-
     const message =
       document.getElementById("formMessage");
-
 
     const submitBtn =
       document.getElementById("submitBtn");
@@ -2077,26 +1912,20 @@
       const qty =
         Number(quantity.value);
 
-
       const bottlePrice =
         prices[qty];
-
 
       const product =
         qty * bottlePrice;
 
-
       const total =
         product + delivery;
-
 
       productTotal.textContent =
         product;
 
-
       grandTotal.textContent =
         total;
-
 
       totalHidden.value =
         `${qty} bottle(s) × Rs. ${bottlePrice} = Rs. ${product} + Rs. ${delivery} delivery = Rs. ${total}`;
@@ -2136,7 +1965,6 @@
         submitBtn.disabled = true;
 
 
-
         try {
 
 
@@ -2146,7 +1974,6 @@
 
           const data =
             Object.fromEntries(formData);
-
 
 
           const response =
@@ -2173,10 +2000,8 @@
             );
 
 
-
           const result =
             await response.json();
-
 
 
           if (
@@ -2193,7 +2018,6 @@
               "form-message success";
 
 
-
             form.reset();
 
 
@@ -2201,7 +2025,6 @@
 
 
             updatePayment();
-
 
 
           } else {
@@ -2221,7 +2044,6 @@
           }
 
 
-
         } catch (error) {
 
 
@@ -2233,7 +2055,6 @@
             "form-message error";
 
         }
-
 
 
         submitBtn.disabled = false;
