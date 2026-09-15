@@ -1982,9 +1982,45 @@
             );
 
 
-          const result =
-            await response.json();
+          /* =========================
+             READ RESPONSE SAFELY
+          ========================= */
 
+          const text =
+            await response.text();
+
+
+          let result;
+
+
+          try {
+
+            result =
+              JSON.parse(text);
+
+          } catch {
+
+            console.error(
+              "Web3Forms response:",
+              text
+            );
+
+            throw new Error(
+              "Web3Forms returned an invalid response."
+            );
+
+          }
+
+
+          console.log(
+            "Web3Forms result:",
+            result
+          );
+
+
+          /* =========================
+             SUCCESS
+          ========================= */
 
           if (
             response.ok &&
@@ -2032,16 +2068,26 @@
           } else {
 
 
+            /* =========================
+               SHOW REAL WEB3FORMS ERROR
+            ========================= */
+
             message.textContent =
               "✕ " +
               (
                 result.message ||
-                "Unable to place order."
+                "Web3Forms could not process the order."
               );
 
 
             message.className =
               "form-message error";
+
+
+            console.error(
+              "Web3Forms error:",
+              result
+            );
 
           }
 
@@ -2049,8 +2095,14 @@
         } catch (error) {
 
 
+          console.error(
+            "Order submission error:",
+            error
+          );
+
+
           message.textContent =
-            "✕ Something went wrong. Please try again.";
+            "✕ " + error.message;
 
 
           message.className =
