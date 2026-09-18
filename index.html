@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>FOLIXA Hair Oil</title>
 
 <style>
+
 *{
   box-sizing:border-box;
 }
@@ -31,7 +33,6 @@ h1{
   letter-spacing:.5px;
 }
 
-/* IMAGE SLIDER */
 .slider{
   width:100%;
   overflow:hidden;
@@ -54,6 +55,7 @@ h1{
 }
 
 @keyframes slide{
+
   0%,28%{
     transform:translateX(0);
   }
@@ -69,9 +71,9 @@ h1{
   100%{
     transform:translateX(0);
   }
+
 }
 
-/* FORM */
 .card{
   background:#fff;
   border-radius:18px;
@@ -120,7 +122,81 @@ button:disabled{
   cursor:not-allowed;
 }
 
+
+/* BANK TRANSFER */
+
+.bank-box{
+  display:none;
+  margin-top:18px;
+  padding:18px;
+  border-radius:12px;
+  background:#f5f2e9;
+  border:1px solid #e2ddcf;
+}
+
+.bank-box h3{
+  margin:0 0 14px;
+  font-size:18px;
+}
+
+.bank{
+  margin-bottom:18px;
+}
+
+.bank:last-child{
+  margin-bottom:0;
+}
+
+.bank strong{
+  display:block;
+  margin-bottom:7px;
+}
+
+.bank p{
+  margin:4px 0;
+  font-size:14px;
+  line-height:1.5;
+}
+
+
+/* WHATSAPP */
+
+.whatsapp-box{
+  display:none;
+  margin-top:16px;
+  text-align:center;
+}
+
+.whatsapp-text{
+  font-size:14px;
+  line-height:1.5;
+  margin-bottom:12px;
+}
+
+.whatsapp-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  width:100%;
+  padding:13px;
+  border-radius:11px;
+  background:#25D366;
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  font-size:16px;
+}
+
+.whatsapp-icon{
+  width:22px;
+  height:22px;
+  fill:white;
+}
+
+
 /* SUCCESS MESSAGE */
+
 .message{
   display:none;
   margin-top:16px;
@@ -132,7 +208,7 @@ button:disabled{
   font-weight:600;
 }
 
-/* MOBILE */
+
 @media(max-width:650px){
 
   .slides img{
@@ -144,9 +220,11 @@ button:disabled{
   }
 
 }
+
 </style>
 
 </head>
+
 
 <body>
 
@@ -154,7 +232,9 @@ button:disabled{
 
   <h1>FOLIXA Hair Oil</h1>
 
+
   <!-- PRODUCT IMAGES -->
+
   <div class="slider">
 
     <div class="slides">
@@ -183,6 +263,7 @@ button:disabled{
 
 
   <!-- ORDER FORM -->
+
   <div class="card">
 
     <form id="orderForm">
@@ -253,25 +334,11 @@ button:disabled{
         required
       >
 
-        <option value="1 Bottle">
-          1 Bottle
-        </option>
-
-        <option value="2 Bottles">
-          2 Bottles
-        </option>
-
-        <option value="3 Bottles">
-          3 Bottles
-        </option>
-
-        <option value="4 Bottles">
-          4 Bottles
-        </option>
-
-        <option value="5 Bottles">
-          5 Bottles
-        </option>
+        <option value="1 Bottle">1 Bottle</option>
+        <option value="2 Bottles">2 Bottles</option>
+        <option value="3 Bottles">3 Bottles</option>
+        <option value="4 Bottles">4 Bottles</option>
+        <option value="5 Bottles">5 Bottles</option>
 
       </select>
 
@@ -293,6 +360,95 @@ button:disabled{
         </option>
 
       </select>
+
+
+      <!-- BANK DETAILS -->
+
+      <div
+        id="bankBox"
+        class="bank-box"
+      >
+
+        <h3>Bank Transfer Details</h3>
+
+
+        <div class="bank">
+
+          <strong>Meezan Bank</strong>
+
+          <p>
+            <b>Account Name:</b>
+            MUHAMMAD SHAKEEL / SHAHIDA SHAKEEL
+          </p>
+
+          <p>
+            <b>Account Number:</b>
+            99150104571475
+          </p>
+
+          <p>
+            <b>IBAN:</b>
+            PK12MEZN0099150104571475
+          </p>
+
+        </div>
+
+
+        <div class="bank">
+
+          <strong>NayaPay</strong>
+
+          <p>
+            <b>Account Name:</b>
+            Anushay Shakeel
+          </p>
+
+          <p>
+            <b>Account Number:</b>
+            03112354478
+          </p>
+
+          <p>
+            <b>IBAN:</b>
+            PK50NAYA1234503112354478
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- WHATSAPP -->
+
+      <div
+        id="whatsappBox"
+        class="whatsapp-box"
+      >
+
+        <div class="whatsapp-text">
+          Please share the screenshot of payment through WhatsApp to confirm your order.
+        </div>
+
+        <a
+          class="whatsapp-btn"
+          href="https://wa.me/923112354478"
+          target="_blank"
+          rel="noopener"
+        >
+
+          <svg
+            class="whatsapp-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M20.52 3.48A11.86 11.86 0 0 0 12.08 0C5.53 0 .2 5.33.2 11.88c0 2.09.55 4.13 1.59 5.92L.1 24l6.35-1.66a11.86 11.86 0 0 0 5.63 1.43h.01c6.55 0 11.88-5.33 11.88-11.88 0-3.18-1.24-6.17-3.45-8.41ZM12.09 21.8h-.01a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.77.99 1.01-3.68-.23-.38a9.9 9.9 0 0 1-1.52-5.26C2.16 6.4 6.61 1.96 12.08 1.96c2.65 0 5.14 1.03 7.02 2.91a9.85 9.85 0 0 1 2.91 7.02c0 5.47-4.45 9.91-9.92 9.91Zm5.43-7.43c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.09 4.49.71.31 1.26.5 1.69.64.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+          </svg>
+
+          WhatsApp
+
+        </a>
+
+      </div>
 
 
       <button
@@ -320,17 +476,52 @@ button:disabled{
 <script>
 
 const form = document.getElementById("orderForm");
+
 const button = document.getElementById("submitBtn");
+
 const message = document.getElementById("message");
+
+const payment = document.getElementById("payment");
+
+const bankBox = document.getElementById("bankBox");
+
+const whatsappBox = document.getElementById("whatsappBox");
+
+
+/* SHOW / HIDE BANK DETAILS */
+
+payment.addEventListener("change", function(){
+
+  if(payment.value === "Bank Transfer"){
+
+    bankBox.style.display = "block";
+
+    whatsappBox.style.display = "block";
+
+  }else{
+
+    bankBox.style.display = "none";
+
+    whatsappBox.style.display = "none";
+
+  }
+
+});
+
+
+/* FORM SUBMISSION */
 
 form.addEventListener("submit", async function(e){
 
   e.preventDefault();
 
   button.disabled = true;
+
   button.textContent = "Submitting...";
 
+
   const data = new FormData(form);
+
 
   try{
 
@@ -345,17 +536,26 @@ form.addEventListener("submit", async function(e){
       }
     );
 
+
     if(!response.ok){
+
       throw new Error("Submission failed");
+
     }
 
+
     form.reset();
+
+    bankBox.style.display = "none";
+
+    whatsappBox.style.display = "none";
 
     message.style.display = "block";
 
     button.textContent = "Order Submitted";
 
   }
+
 
   catch(error){
 
