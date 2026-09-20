@@ -560,13 +560,15 @@ form.addEventListener("submit", async function(e){
 
 
     if(!response.ok){
+ throw new Error("Submission failed");
+}
 
-      throw new Error("Submission failed");
+/* META LEAD EVENT */
+if(typeof fbq === "function"){
+ fbq('track', 'Lead');
+}
 
-    }
-
-
-    form.reset();
+form.reset();
 
     bankBox.style.display = "none";
 
