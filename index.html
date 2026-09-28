@@ -1,79 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
-    <!-- Meta Pixel Code -->
+<title>FOLIXA Hair Oil</title>
 
-    
+<!-- =========================================================
+     META PIXEL
+     ========================================================= -->
+
 <script>
 !function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
+{
+  if(f.fbq)return;
+
+  n=f.fbq=function(){
+    n.callMethod ?
+    n.callMethod.apply(n,arguments) :
+    n.queue.push(arguments)
+  };
+
+  if(!f._fbq)f._fbq=n;
+
+  n.push=n;
+  n.loaded=!0;
+  n.version='2.0';
+  n.queue=[];
+
+  t=b.createElement(e);
+  t.async=!0;
+  t.src=v;
+
+  s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)
+
+}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
+
+
+/* YOUR META PIXEL ID */
 fbq('init', '1223782039947720');
+
+
+/* PAGE VIEW */
 fbq('track', 'PageView');
 
-// Purchase Event code.
-// Place this only on the page people see AFTER buying.
-fbq('track', 'Purchase', {
-  value: 999, // Replace with the actual price
-  currency: 'PKR' // Replace with your currency, e.g. 'PKR'
+
+/* PRODUCT VIEW */
+fbq('track', 'ViewContent', {
+  content_name: 'FOLIXA Hair Oil',
+  content_type: 'product',
+  content_ids: ['FOLIXA-HAIR-OIL'],
+  value: 999,
+  currency: 'PKR'
 });
+
 </script>
+
+
+<!-- META PIXEL NOSCRIPT -->
+
 <noscript>
-  <img height="1" width="1" style="display:none"
-       src="https://www.facebook.com/tr?id=1223782039947720&ev=PageView&noscript=1"/>
+  <img
+    height="1"
+    width="1"
+    style="display:none"
+    src="https://www.facebook.com/tr?id=1223782039947720&ev=PageView&noscript=1"
+  />
 </noscript>
-<!-- End Meta Pixel Code -->
 
-    <!-- End Meta Pixel Code -->
+<!-- =========================================================
+     END META PIXEL
+     ========================================================= -->
 
-</head>
 
-<body>
-
-    <h1>FOLIXA Hair Oil</h1>
-
-    <p>Natural Hair Oil</p>
-
-    <!-- Order Button -->
-    <button type="submit" id="orderButton">
-        Order Now
-    </button>
-
-</body>
-</html>
-<!-- END META PIXEL -->
-  
-<title>FOLIXA Hair Oil</title>
 <style>
+
 *{
   box-sizing:border-box;
 }
+
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
   background:#f7f4ec;
   color:#1d2b22;
 }
+
 .wrap{
   max-width:850px;
   margin:auto;
   padding:22px 16px 45px;
 }
+
 h1{
   text-align:center;
   margin:5px 0 22px;
   font-size:32px;
   letter-spacing:.5px;
 }
+
+
+/* =========================================================
+   IMAGE SLIDER
+   ========================================================= */
+
 .slider{
   width:100%;
   overflow:hidden;
@@ -81,42 +114,63 @@ h1{
   margin-bottom:24px;
   background:#eee9dc;
 }
+
 .slides{
   display:flex;
   width:300%;
   animation:slide 9s infinite;
 }
+
 .slides img{
   width:33.3333%;
   height:420px;
   object-fit:cover;
   display:block;
 }
+
 @keyframes slide{
+
   0%,28%{
     transform:translateX(0);
   }
+
   33%,61%{
     transform:translateX(-33.3333%);
   }
+
   66%,94%{
     transform:translateX(-66.6666%);
   }
+
   100%{
     transform:translateX(0);
   }
+
 }
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
 .card{
   background:#fff;
   border-radius:18px;
   padding:22px;
   box-shadow:0 5px 25px rgba(0,0,0,.07);
 }
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
 label{
   display:block;
   font-weight:600;
   margin:14px 0 7px;
 }
+
 input,
 select,
 textarea{
@@ -128,10 +182,12 @@ textarea{
   background:#fff;
   outline:none;
 }
+
 textarea{
   min-height:95px;
   resize:vertical;
 }
+
 button{
   width:100%;
   margin-top:20px;
@@ -144,11 +200,17 @@ button{
   font-weight:700;
   cursor:pointer;
 }
+
 button:disabled{
   opacity:.6;
   cursor:not-allowed;
 }
-/* BANK TRANSFER */
+
+
+/* =========================================================
+   BANK TRANSFER
+   ========================================================= */
+
 .bank-box{
   display:none;
   margin-top:18px;
@@ -157,36 +219,48 @@ button:disabled{
   background:#f5f2e9;
   border:1px solid #e2ddcf;
 }
+
 .bank-box h3{
   margin:0 0 14px;
   font-size:18px;
 }
+
 .bank{
   margin-bottom:18px;
 }
+
 .bank:last-child{
   margin-bottom:0;
 }
+
 .bank strong{
   display:block;
   margin-bottom:7px;
 }
+
 .bank p{
   margin:4px 0;
   font-size:14px;
   line-height:1.5;
 }
-/* WHATSAPP */
+
+
+/* =========================================================
+   WHATSAPP
+   ========================================================= */
+
 .whatsapp-box{
   display:none;
   margin-top:16px;
   text-align:center;
 }
+
 .whatsapp-text{
   font-size:14px;
   line-height:1.5;
   margin-bottom:12px;
 }
+
 .whatsapp-btn{
   display:flex;
   align-items:center;
@@ -201,12 +275,18 @@ button:disabled{
   font-weight:700;
   font-size:16px;
 }
+
 .whatsapp-icon{
   width:22px;
   height:22px;
   fill:white;
 }
-/* SUCCESS MESSAGE */
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+   ========================================================= */
+
 .message{
   display:none;
   margin-top:16px;
@@ -217,249 +297,695 @@ button:disabled{
   text-align:center;
   font-weight:600;
 }
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media(max-width:650px){
+
   .slides img{
     height:330px;
   }
+
   h1{
     font-size:28px;
   }
+
 }
+
 </style>
+
 </head>
+
+
 <body>
+
+
 <div class="wrap">
+
   <h1>FOLIXA Hair Oil</h1>
-  <!-- PRODUCT IMAGES -->
+
+
+  <!-- =====================================================
+       PRODUCT IMAGES
+       ===================================================== -->
+
   <div class="slider">
+
     <div class="slides">
+
       <img
         src="../images/folixa-1.webp"
         alt="FOLIXA Hair Oil"
         loading="eager"
       >
+
       <img
         src="../images/folixa-2.webp"
         alt="FOLIXA Hair Oil"
         loading="lazy"
       >
+
       <img
         src="../images/folixa-3.webp"
         alt="FOLIXA Hair Oil"
         loading="lazy"
       >
+
     </div>
+
   </div>
-  <!-- PRICE -->
+
+
+  <!-- =====================================================
+       PRICE
+       ===================================================== -->
+
   <div style="
     text-align:center;
     margin:-8px 0 24px;
     font-size:22px;
     font-weight:700;
   ">
+
     Rs. 999 with Delivery
+
   </div>
-  <!-- ORDER FORM -->
+
+
+  <!-- =====================================================
+       ORDER FORM
+       ===================================================== -->
+
   <div class="card">
+
     <form id="orderForm">
+
+
+      <!-- FORM SUBMIT SETTINGS -->
+
       <input
         type="hidden"
         name="_subject"
         value="New FOLIXA Order"
       >
+
       <input
         type="hidden"
         name="_captcha"
         value="false"
       >
+
       <input
         type="hidden"
         name="_template"
         value="table"
       >
-      <label for="name">Full Name</label>
+
+
+      <!-- =================================================
+           EVENT ID
+           ================================================= -->
+
+      <input
+        type="hidden"
+        id="event_id"
+        name="Meta Event ID"
+        value=""
+      >
+
+
+      <!-- =================================================
+           CUSTOMER NAME
+           ================================================= -->
+
+      <label for="name">
+        Full Name
+      </label>
+
       <input
         id="name"
         name="Customer Name"
         type="text"
         required
       >
-      <label for="phone">Phone Number</label>
+
+
+      <!-- =================================================
+           PHONE
+           ================================================= -->
+
+      <label for="phone">
+        Phone Number
+      </label>
+
       <input
         id="phone"
         name="Phone Number"
         type="tel"
         required
       >
-      <label for="city">City</label>
+
+
+      <!-- =================================================
+           CITY
+           ================================================= -->
+
+      <label for="city">
+        City
+      </label>
+
       <input
         id="city"
         name="City"
         type="text"
         required
       >
-      <label for="address">Complete Address</label>
+
+
+      <!-- =================================================
+           ADDRESS
+           ================================================= -->
+
+      <label for="address">
+        Complete Address
+      </label>
+
       <textarea
         id="address"
         name="Complete Address"
         required
       ></textarea>
-      <label for="quantity">Quantity</label>
+
+
+      <!-- =================================================
+           QUANTITY
+           ================================================= -->
+
+      <label for="quantity">
+        Quantity
+      </label>
+
       <select
         id="quantity"
         name="Quantity"
         required
       >
-        <option value="1 Bottle">1 Bottle</option>
-        <option value="2 Bottles">2 Bottles</option>
-        <option value="3 Bottles">3 Bottles</option>
-        <option value="4 Bottles">4 Bottles</option>
-        <option value="5 Bottles">5 Bottles</option>
+
+        <option value="1 Bottle">
+          1 Bottle
+        </option>
+
+        <option value="2 Bottles">
+          2 Bottles
+        </option>
+
+        <option value="3 Bottles">
+          3 Bottles
+        </option>
+
+        <option value="4 Bottles">
+          4 Bottles
+        </option>
+
+        <option value="5 Bottles">
+          5 Bottles
+        </option>
+
       </select>
-      <label for="payment">Payment Method</label>
+
+
+      <!-- =================================================
+           PAYMENT METHOD
+           ================================================= -->
+
+      <label for="payment">
+        Payment Method
+      </label>
+
       <select
         id="payment"
         name="Payment Method"
         required
       >
+
         <option value="Cash on Delivery">
           Cash on Delivery
         </option>
+
         <option value="Bank Transfer">
           Bank Transfer
         </option>
+
       </select>
-      <!-- BANK DETAILS -->
+
+
+      <!-- =================================================
+           BANK DETAILS
+           ================================================= -->
+
       <div
         id="bankBox"
         class="bank-box"
       >
-        <h3>Bank Transfer Details</h3>
+
+        <h3>
+          Bank Transfer Details
+        </h3>
+
+
         <div class="bank">
-          <strong>Meezan Bank</strong>
+
+          <strong>
+            Meezan Bank
+          </strong>
+
           <p>
             <b>Account Name:</b>
             MUHAMMAD SHAKEEL / SHAHIDA SHAKEEL
           </p>
+
           <p>
             <b>Account Number:</b>
             99150104571475
           </p>
+
           <p>
             <b>IBAN:</b>
             PK12MEZN0099150104571475
           </p>
+
         </div>
+
+
         <div class="bank">
-          <strong>NayaPay</strong>
+
+          <strong>
+            NayaPay
+          </strong>
+
           <p>
             <b>Account Name:</b>
             Anushay Shakeel
           </p>
+
           <p>
             <b>Account Number:</b>
             03112354478
           </p>
+
           <p>
             <b>IBAN:</b>
             PK50NAYA1234503112354478
           </p>
+
         </div>
+
       </div>
-      <!-- WHATSAPP -->
+
+
+      <!-- =================================================
+           WHATSAPP
+           ================================================= -->
+
       <div
         id="whatsappBox"
         class="whatsapp-box"
       >
+
         <div class="whatsapp-text">
+
           Please share the screenshot of payment through WhatsApp to confirm your order.
+
         </div>
+
+
         <a
           class="whatsapp-btn"
           href="https://wa.me/923112354478"
           target="_blank"
           rel="noopener"
         >
+
           <svg
             class="whatsapp-icon"
             viewBox="0 0 24 24"
             aria-hidden="true"
           >
-            <path d="M20.52 3.48A11.86 11.86 0 0 0 12.08 0C5.53 0 .2 5.33.2 11.88c0 2.09.55 4.13 1.59 5.92L.1 24l6.35-1.66a11.86 11.86 0 0 0 5.63 1.43h.01c6.55 0 11.88-5.33 11.88-11.88 0-3.18-1.24-6.17-3.45-8.41ZM12.09 21.8h-.01a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.77.99 1.01-3.68-.23-.38a9.9 9.9 0 0 1-1.52-5.26C2.16 6.4 6.61 1.96 12.08 1.96c2.65 0 5.14 1.03 7.02 2.91a9.85 9.85 0 0 1 2.91 7.02c0 5.47-4.45 9.91-9.92 9.91Zm5.43-7.43c-.3-.15-1.77-.87-2.04-.97-.27.3-.47.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.2-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.09 4.49.71.31 1.26.5 1.69.64.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+
+            <path d="M20.52 3.48A11.86 11.86 0 0 0 12.08 0C5.53 .0 .2 5.33 .2 11.88c0 2.09 .55 4.13 1.59 5.92L.1 24l6.35-1.66a11.86 11.86 0 0 0 5.63 1.43h.01c6.55 0 11.88-5.33 11.88-11.88 0-3.18-1.24-6.17-3.45-8.41ZM12.09 21.8h-.01a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.77.99 1.01-3.68-.23-.38a9.9 9.9 0 0 1-1.52-5.26C2.16 6.4 6.61 1.96 12.08 1.96c2.65 0 5.14 1.03 7.02 2.91a9.85 9.85 0 0 1 2.91 7.02c0 5.47-4.45 9.91-9.92 9.91Zm5.43-7.43c-.3-.15-1.77-.87-2.04-.97-.27.3-.47.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.2-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.09 4.49.71.31 1.26.5 1.69.64.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+
           </svg>
+
           WhatsApp
+
         </a>
+
       </div>
+
+
+      <!-- =================================================
+           SUBMIT BUTTON
+           ================================================= -->
+
       <button
         id="submitBtn"
         type="submit"
       >
+
         Place Order
+
       </button>
+
+
+      <!-- =================================================
+           SUCCESS MESSAGE
+           ================================================= -->
+
       <div
         id="message"
         class="message"
       >
-        Order has been submitted. You will be contacted shortly.
+
+        Order has been submitted.
+        You will be contacted shortly.
+
       </div>
+
+
     </form>
+
   </div>
+
 </div>
+
+
+
 <script>
+
+/* =========================================================
+   ELEMENTS
+   ========================================================= */
+
 const form = document.getElementById("orderForm");
+
 const button = document.getElementById("submitBtn");
+
 const message = document.getElementById("message");
+
 const payment = document.getElementById("payment");
+
 const bankBox = document.getElementById("bankBox");
+
 const whatsappBox = document.getElementById("whatsappBox");
-/* SHOW / HIDE BANK DETAILS */
-payment.addEventListener("change", function(){
-  if(payment.value === "Bank Transfer"){
-    bankBox.style.display = "block";
-    whatsappBox.style.display = "block";
-  }else{
-    bankBox.style.display = "none";
-    whatsappBox.style.display = "none";
+
+const quantity = document.getElementById("quantity");
+
+const eventIdInput = document.getElementById("event_id");
+
+
+/* =========================================================
+   GENERATE UNIQUE EVENT ID
+   ========================================================= */
+
+function generateEventId(){
+
+  if(
+    window.crypto &&
+    typeof window.crypto.randomUUID === "function"
+  ){
+
+    return window.crypto.randomUUID();
+
   }
+
+  return (
+    "folixa_" +
+    Date.now() +
+    "_" +
+    Math.random()
+      .toString(36)
+      .substring(2, 12)
+  );
+
+}
+
+
+/* =========================================================
+   SHOW / HIDE BANK DETAILS
+   ========================================================= */
+
+payment.addEventListener("change", function(){
+
+  if(payment.value === "Bank Transfer"){
+
+    bankBox.style.display = "block";
+
+    whatsappBox.style.display = "block";
+
+  }else{
+
+    bankBox.style.display = "none";
+
+    whatsappBox.style.display = "none";
+
+  }
+
 });
-/* FORM SUBMISSION */
-form.addEventListener("submit", async function(e){
-  e.preventDefault();
-  button.disabled = true;
-  button.textContent = "Submitting...";
-  const data = new FormData(form);
-  try{
-    const response = await fetch(
-      "https://formsubmit.co/ajax/nayapayonly13@gmail.com",
+
+
+/* =========================================================
+   INITIATE CHECKOUT
+   ========================================================= */
+
+let checkoutStarted = false;
+
+function trackInitiateCheckout(){
+
+  if(checkoutStarted){
+    return;
+  }
+
+  checkoutStarted = true;
+
+  const currentEventId = generateEventId();
+
+  if(typeof fbq === "function"){
+
+    fbq(
+      'track',
+      'InitiateCheckout',
       {
-        method:"POST",
-        body:data,
-        headers:{
-          "Accept":"application/json"
-        }
+        content_name: 'FOLIXA Hair Oil',
+        content_type: 'product',
+        content_ids: ['FOLIXA-HAIR-OIL'],
+        value: 999,
+        currency: 'PKR'
+      },
+      {
+        eventID: currentEventId
       }
     );
-    if(!response.ok){
- throw new Error("Submission failed");
-}
-/* META LEAD EVENT */
-if(typeof fbq === "function"){
- fbq('track', 'Lead');
-}
-form.reset();
-    bankBox.style.display = "none";
-    whatsappBox.style.display = "none";
-    message.style.display = "block";
-    button.textContent = "Order Submitted";
+
   }
-  catch(error){
-    button.disabled = false;
-    button.textContent = "Place Order";
-    alert(
-      "Something went wrong. Please try again."
-    );
+
+}
+
+
+/* =========================================================
+   START CHECKOUT WHEN CUSTOMER USES FORM
+   ========================================================= */
+
+form.addEventListener(
+  "input",
+  trackInitiateCheckout,
+  { once:true }
+);
+
+
+/* =========================================================
+   FORM SUBMISSION
+   ========================================================= */
+
+form.addEventListener(
+  "submit",
+  async function(e){
+
+    e.preventDefault();
+
+
+    /* Disable button */
+
+    button.disabled = true;
+
+    button.textContent = "Submitting...";
+
+
+    /* Generate unique Purchase event ID */
+
+    const purchaseEventId = generateEventId();
+
+
+    /* Put event ID inside form */
+
+    eventIdInput.value = purchaseEventId;
+
+
+    /* =====================================================
+       ORDER VALUE
+
+       Current website price:
+       Rs. 999 per bottle.
+
+       Quantity is multiplied by 999.
+       ===================================================== */
+
+    const selectedQuantity = quantity.value;
+
+    let numberOfBottles = 1;
+
+    if(selectedQuantity.includes("2")){
+      numberOfBottles = 2;
+    }
+
+    else if(selectedQuantity.includes("3")){
+      numberOfBottles = 3;
+    }
+
+    else if(selectedQuantity.includes("4")){
+      numberOfBottles = 4;
+    }
+
+    else if(selectedQuantity.includes("5")){
+      numberOfBottles = 5;
+    }
+
+
+    const purchaseValue = 999 * numberOfBottles;
+
+
+    /* =====================================================
+       SEND ORDER TO FORMSUBMIT
+       ===================================================== */
+
+    const data = new FormData(form);
+
+
+    try{
+
+      const response = await fetch(
+        "https://formsubmit.co/ajax/nayapayonly13@gmail.com",
+        {
+          method:"POST",
+
+          body:data,
+
+          headers:{
+            "Accept":"application/json"
+          }
+
+        }
+      );
+
+
+      /* ===================================================
+         CHECK WHETHER ORDER WAS ACCEPTED
+         =================================================== */
+
+      if(!response.ok){
+
+        throw new Error(
+          "Order submission failed"
+        );
+
+      }
+
+
+      /* ===================================================
+         PURCHASE EVENT
+
+         IMPORTANT:
+         This fires ONLY after FormSubmit succeeds.
+         =================================================== */
+
+      if(typeof fbq === "function"){
+
+        fbq(
+          'track',
+          'Purchase',
+          {
+            content_name: 'FOLIXA Hair Oil',
+
+            content_type: 'product',
+
+            content_ids: [
+              'FOLIXA-HAIR-OIL'
+            ],
+
+            value: purchaseValue,
+
+            currency: 'PKR',
+
+            num_items: numberOfBottles
+
+          },
+          {
+            eventID: purchaseEventId
+          }
+        );
+
+      }
+
+
+      /* ===================================================
+         RESET FORM
+         =================================================== */
+
+      form.reset();
+
+
+      bankBox.style.display = "none";
+
+      whatsappBox.style.display = "none";
+
+
+      /* ===================================================
+         SHOW SUCCESS MESSAGE
+         =================================================== */
+
+      message.style.display = "block";
+
+      button.textContent = "Order Submitted";
+
+
+    }
+
+    catch(error){
+
+      console.error(
+        "FOLIXA order error:",
+        error
+      );
+
+
+      button.disabled = false;
+
+      button.textContent = "Place Order";
+
+
+      alert(
+        "Something went wrong. Please try again."
+      );
+
+    }
+
   }
-});
+);
+
 </script>
+
+
 </body>
 </html>
