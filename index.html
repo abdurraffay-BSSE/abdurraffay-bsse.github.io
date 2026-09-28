@@ -13,48 +13,32 @@
     <title>FOLIXA Hair Oil</title>
 
     <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function()
-    {n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1223782039947720');
+fbq('track', 'PageView');
 
-    fbq('init', '1223782039947720');
-    fbq('track', 'PageView');
+// Purchase Event code.
+// Place this only on the page people see AFTER buying.
+fbq('track', 'Purchase', {
+  value: 999, // Replace with the actual price
+  currency: 'PKR' // Replace with your currency, e.g. 'PKR'
+});
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+       src="https://www.facebook.com/tr?id=1223782039947720&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
 
-    // This function fires when the order button is clicked
-    function trackPurchase() {
-        fbq('track', 'Purchase', {
-            value: 999,
-            currency: 'PKR'
-        });
-    }
-
-    // Attach Purchase event to the Order button
-    document.addEventListener('DOMContentLoaded', function() {
-
-        var btn = document.getElementById('orderButton');
-
-        if (btn) {
-            btn.addEventListener('click', trackPurchase);
-        }
-
-    });
-    </script>
-
-    <noscript>
-        <img
-            height="1"
-            width="1"
-            style="display:none"
-            src="https://www.facebook.com/tr?id=1223782039947720&ev=PageView&noscript=1"
-        />
-    </noscript>
     <!-- End Meta Pixel Code -->
 
 </head>
