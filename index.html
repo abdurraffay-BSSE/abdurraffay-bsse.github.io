@@ -4,33 +4,74 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- META PIXEL -->
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function()
-{n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-fbq('init', '1223782039947720');
-fbq('track', 'PageView');
+    <title>FOLIXA Hair Oil</title>
 
-// Add the Purchase event below for this specific page
-fbq('track', 'purchase', {
-  value: 999,
-  currency: 'PKR'
-});
-</script>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function()
+    {n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
 
-<noscript>
-<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1223782039947720&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel Code -->
+    fbq('init', '1223782039947720');
+    fbq('track', 'PageView');
+
+    // This function fires when the order button is clicked
+    function trackPurchase() {
+        fbq('track', 'Purchase', {
+            value: 999,
+            currency: 'PKR'
+        });
+    }
+
+    // Attach Purchase event to the Order button
+    document.addEventListener('DOMContentLoaded', function() {
+
+        var btn = document.getElementById('orderButton');
+
+        if (btn) {
+            btn.addEventListener('click', trackPurchase);
+        }
+
+    });
+    </script>
+
+    <noscript>
+        <img
+            height="1"
+            width="1"
+            style="display:none"
+            src="https://www.facebook.com/tr?id=1223782039947720&ev=PageView&noscript=1"
+        />
+    </noscript>
+    <!-- End Meta Pixel Code -->
+
+</head>
+
+<body>
+
+    <h1>FOLIXA Hair Oil</h1>
+
+    <p>Natural Hair Oil</p>
+
+    <!-- Order Button -->
+    <button type="submit" id="orderButton">
+        Order Now
+    </button>
+
+</body>
+</html>
 <!-- END META PIXEL -->
   
 <title>FOLIXA Hair Oil</title>
